@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import SidebarPanel from '../components/SidebarPanel.astro';
+import { conference, scopeGroups, submissionCategories, statusFacts } from '../content';
+---
+<BaseLayout title="Call for Papers" active="/call-for-papers">
+  <PageHero
+    eyebrow="Authors · ICAMC 2027"
+    title="Call for Papers"
+    description="Original research, systems, applications and emerging work across automation, mobility, connectivity and their intersections."
+  />
+  <div class="breadcrumbs"><div class="container"><a href="/">Home</a> / Call for Papers</div></div>
+
+  <section class="section">
+    <div class="container content-with-sidebar">
+      <div class="content-column">
+        <div class="content-block">
+          <p class="eyebrow">Scope</p>
+          <h2>Research spanning physical and digital systems</h2>
+          <p>
+            ICAMC 2027 welcomes theory, methods, systems, prototypes, field trials, industrial case studies, datasets, benchmarks, standards, education and interdisciplinary studies across automation, mobility and connectivity.
+          </p>
+          <p>
+            The conference is particularly interested in work that connects physical and digital domains—for example digital twins linked to real systems, connected autonomous mobility, distributed control, intelligent infrastructure, virtual and physical agents, secure communications and AI-enabled cyber-physical ecosystems.
+          </p>
+        </div>
+
+        <div class="notice warning">
+          <strong>Submission calendar is not yet final</strong>
+          <p>
+            ICAMC 2027 is planned around rolling review and notification. The submission portal, formal cut-off dates, page limits and camera-ready instructions will be published before submissions open. This website must not invent those values.
+          </p>
+        </div>
+
+        <div class="content-block">
+          <p class="eyebrow">Submission categories</p>
+          <h2>Planned contribution types</h2>
+          <div class="category-list">
+            {submissionCategories.map((category) => (
+              <div class="category-row">
+                <strong>{category.title}</strong>
+                <span>{category.description}</span>
+              </div>
+            ))}
+          </div>
+          <p class="small muted" style="margin-top:.8rem">Final page limits and formatting instructions will be published with the author guidelines.</p>
+        </div>
+
+        <div class="content-block">
+          <p class="eyebrow">Topics of interest</p>
+          <h2>Indicative technical scope</h2>
+          <div class="scope-grid">
+            {scopeGroups.map((group) => (
+              <section class="scope-group">
+                <h3>{group.title}</h3>
+                <ul>{group.items.map((item) => <li>{item}</li>)}</ul>
+              </section>
+            ))}
+          </div>
+        </div>
+
+        <div class="content-block">
+          <p class="eyebrow">Review and publication</p>
+          <h2>Rolling review, awards and publication preparation</h2>
+          <p>{statusFacts.review}. Submitted work is expected to undergo peer review appropriate to its category.</p>
+          <p>{statusFacts.publication}</p>
+          <p>{statusFacts.awards}</p>
+          <p>{statusFacts.journal}</p>
+        </div>
+      </div>
+
+      <div class="sidebar-stack">
+        <SidebarPanel title="At a Glance" tone="navy">
+          <table class="info-table">
+            <tbody>
+              <tr><th>Conference</th><td>{conference.dates}</td></tr>
+              <tr><th>Location</th><td>{conference.city}, {conference.country}</td></tr>
+              <tr><th>Format</th><td>{conference.format}</td></tr>
+              <tr><th>Review</th><td>Rolling review planned</td></tr>
+              <tr><th>Portal</th><td>To be announced</td></tr>
+            </tbody>
+          </table>
+        </SidebarPanel>
+        <SidebarPanel title="Author Links" tone="blue">
+          <ul>
+            <li><a href="#">Submission portal — coming later</a></li>
+            <li><a href="#">Author guidelines — coming later</a></li>
+            <li><a href="#">Paper templates — coming later</a></li>
+            <li><a href="/organization">Conference organization →</a></li>
+          </ul>
+        </SidebarPanel>
+        <SidebarPanel title="Publication Status" tone="plain">
+          <p>{statusFacts.publication}</p>
+        </SidebarPanel>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,8 @@
+---
+interface Props { title: string; tone?: 'navy' | 'blue' | 'plain'; }
+const { title, tone = 'navy' } = Astro.props;
+---
+<aside class:list={['sidebar-panel', `sidebar-${tone}`]}>
+  <h2>{title}</h2>
+  <div class="sidebar-panel-body"><slot /></div>
+</aside>

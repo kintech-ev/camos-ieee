@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import SidebarPanel from '../components/SidebarPanel.astro';
+---
+<BaseLayout title="Website Design System" noindex={true}>
+  <section class="ds-hero">
+    <div class="container">
+      <p class="eyebrow light">Internal reference · ICAMC 2027</p>
+      <h1>Website Design System</h1>
+      <p>
+        The canonical visual system for the ICAMC website. It is intentionally close to the information architecture and restrained visual language of established IEEE conference websites: institutional header, strong blue navigation, photographic conference hero, content-first pages, right-hand utility panels, compact tables and minimal decorative UI.
+      </p>
+    </div>
+  </section>
+
+  <nav class="ds-index" aria-label="Design system sections">
+    <div class="container">
+      <a href="#principles">Principles</a>
+      <a href="#colors">Colors</a>
+      <a href="#type">Typography</a>
+      <a href="#layout">Layout</a>
+      <a href="#spacing">Spacing</a>
+      <a href="#components">Components</a>
+      <a href="#themes">Theme accents</a>
+      <a href="#responsive">Responsive</a>
+      <a href="#accessibility">Accessibility</a>
+    </div>
+  </nav>
+
+  <section id="principles" class="ds-section">
+    <div class="container">
+      <p class="eyebrow">01 · Principles</p>
+      <h2>Academic conference first, marketing landing page second</h2>
+      <p class="ds-description">The system prioritizes fast scanning, known conference patterns and low cognitive overhead. Content should be easy to locate without guessing which decorative card contains it.</p>
+      <div class="ds-component-grid">
+        <div class="ds-demo"><h3>Use</h3><ul><li>Clear institutional hierarchy</li><li>One primary navigation bar</li><li>Large but restrained hero photography</li><li>Content + sidebar on information-heavy pages</li><li>Tables and lists for administrative information</li><li>Color only when it carries meaning</li></ul></div>
+        <div class="ds-demo"><h3>Avoid</h3><ul><li>Dashboard-style homepages</li><li>Glassmorphism and floating panels</li><li>Excessive gradients or pill shapes</li><li>Multiple competing navigation systems</li><li>One page per small concept</li><li>Invented conference data used as visual filler</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="colors" class="ds-section section-soft">
+    <div class="container">
+      <p class="eyebrow">02 · Color</p>
+      <h2>Institutional blue with semantic theme accents</h2>
+      <p class="ds-description">Blue carries the core conference identity. Green, orange and IEEE-like blue are reserved for Automation, Mobility and Connectivity.</p>
+      <div class="swatches">
+        <div class="swatch"><div class="swatch-color" style="background:#071b2f"></div><div class="swatch-meta"><strong>Navy 950</strong><span>#071B2F · footer / dark surfaces</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#0b2d4d"></div><div class="swatch-meta"><strong>Navy 900</strong><span>#0B2D4D · headings / dark panels</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#00629b"></div><div class="swatch-meta"><strong>Conference Blue</strong><span>#00629B · navigation / links / CTA</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#f5f8fa"></div><div class="swatch-meta"><strong>Surface Soft</strong><span>#F5F8FA · section background</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#13855b"></div><div class="swatch-meta"><strong>Automation</strong><span>#13855B</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#d86a1f"></div><div class="swatch-meta"><strong>Mobility</strong><span>#D86A1F</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#0a73b7"></div><div class="swatch-meta"><strong>Connectivity</strong><span>#0A73B7</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#d7e0e7"></div><div class="swatch-meta"><strong>Line</strong><span>#D7E0E7 · borders / dividers</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="type" class="ds-section">
+    <div class="container">
+      <p class="eyebrow">03 · Typography</p>
+      <h2>Readable system sans-serif</h2>
+      <p class="ds-description">No decorative display font is required. The hierarchy should feel technical, stable and familiar on institutional conference websites.</p>
+      <div class="type-sample"><span class="type-token">Display / H1</span><h1 style="font-size:3.5rem;margin:0">Automation, Mobility and Connectivity</h1></div>
+      <div class="type-sample"><span class="type-token">H2</span><h2 style="margin:0">Important dates and conference information</h2></div>
+      <div class="type-sample"><span class="type-token">H3</span><h3 style="margin:0">Submission categories</h3></div>
+      <div class="type-sample"><span class="type-token">Body</span><p style="margin:0;max-width:68ch">Body text is 16px with generous line height. Long academic and administrative copy remains readable without needing card-based fragmentation.</p></div>
+      <div class="type-sample"><span class="type-token">Eyebrow</span><p class="eyebrow" style="margin:0">Scientific themes</p></div>
+    </div>
+  </section>
+
+  <section id="layout" class="ds-section section-soft">
+    <div class="container">
+      <p class="eyebrow">04 · Layout</p>
+      <h2>1180px container and a conference-standard content/sidebar pattern</h2>
+      <p class="ds-description">The homepage can be full-width in selected sections. Information-heavy pages use a wide reading column plus a 340px utility sidebar.</p>
+      <div class="layout-diagram"><div class="layout-main">Main content · minmax(0, 1fr)</div><div class="layout-side">Sidebar · 340px</div></div>
+      <div class="fact-strip" style="margin-top:1rem"><div class="fact"><strong>1180px</strong><span>maximum content width</span></div><div class="fact"><strong>72ch</strong><span>recommended reading width</span></div><div class="fact"><strong>340px</strong><span>desktop sidebar</span></div><div class="fact"><strong>1–2 levels</strong><span>navigation depth</span></div></div>
+    </div>
+  </section>
+
+  <section id="spacing" class="ds-section">
+    <div class="container">
+      <p class="eyebrow">05 · Spacing & shape</p>
+      <h2>Simple rhythm, restrained rounding</h2>
+      <p class="ds-description">Conference UI should not feel like a consumer app. Most surfaces are square or only lightly rounded.</p>
+      <div class="spacing-row">
+        <div class="spacing-chip" style="width:24px;height:24px">6</div>
+        <div class="spacing-chip" style="width:40px;height:40px">12</div>
+        <div class="spacing-chip" style="width:52px;height:52px">16</div>
+        <div class="spacing-chip" style="width:68px;height:68px">24</div>
+        <div class="spacing-chip" style="width:84px;height:84px">32</div>
+        <div class="spacing-chip" style="width:105px;height:105px">48</div>
+        <div class="spacing-chip" style="width:130px;height:130px">72</div>
+      </div>
+      <p style="margin-top:1.25rem">Default radius: <strong>2–4px</strong>. Medium radius: <strong>8px</strong> only for selected containers. Pill shapes are reserved for small status badges.</p>
+    </div>
+  </section>
+
+  <section id="components" class="ds-section section-soft">
+    <div class="container">
+      <p class="eyebrow">06 · Components</p>
+      <h2>The actual UI vocabulary used by the site</h2>
+      <p class="ds-description">These are the reusable patterns. The site should not grow a parallel component language unless a real content need appears.</p>
+      <div class="ds-component-grid">
+        <div class="ds-demo"><h3>Buttons</h3><div style="display:flex;gap:.6rem;flex-wrap:wrap"><a class="button button-primary" href="#">Primary action</a><a class="button button-secondary" href="#">Secondary</a><a class="button button-outline" href="#">Outline</a></div></div>
+        <div class="ds-demo"><h3>Status badges</h3><div style="display:flex;gap:.6rem;flex-wrap:wrap"><span class="badge badge-confirmed">Confirmed</span><span class="badge badge-planned">Planned</span><span class="badge badge-pending">Subject to confirmation</span><span class="badge badge-open">Open</span></div></div>
+        <div class="ds-demo"><h3>Information notice</h3><div class="notice"><strong>Publication pathway</strong><p>Use a bordered notice for information that must be noticed without becoming a full-width alert.</p></div></div>
+        <div class="ds-demo"><h3>Deadline / warning notice</h3><div class="notice warning"><strong>Dates not final</strong><p>Orange indicates time-sensitive or provisional information, not a decorative highlight.</p></div></div>
+        <div class="ds-demo"><h3>Sidebar panel</h3><SidebarPanel title="Quick Links" tone="navy"><ul><li><a href="#">Call for Papers →</a></li><li><a href="#">Organization →</a></li><li><a href="#">Venue →</a></li></ul></SidebarPanel></div>
+        <div class="ds-demo"><h3>Administrative table</h3><table class="organization-table"><thead><tr><th>Role</th><th>Name</th><th>Status</th></tr></thead><tbody><tr><td>Publication Chair</td><td>Example Name</td><td><span class="badge badge-confirmed">Confirmed</span></td></tr><tr><td>International Liaison</td><td>To be appointed</td><td><span class="badge badge-open">Open</span></td></tr></tbody></table></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="themes" class="ds-section">
+    <div class="container">
+      <p class="eyebrow">07 · Theme accents</p>
+      <h2>Color communicates subject, not decoration</h2>
+      <p class="ds-description">The three core areas have stable semantic accents across the site.</p>
+      <div class="theme-grid">
+        <article class="theme-card automation"><span class="theme-number">Automation</span><h3>Automation</h3><p>Green is used for automation-specific separators, highlights and diagrams.</p></article>
+        <article class="theme-card mobility"><span class="theme-number">Mobility</span><h3>Mobility</h3><p>Orange is used for mobility-specific separators, highlights and diagrams.</p></article>
+        <article class="theme-card connectivity"><span class="theme-number">Connectivity</span><h3>Connectivity</h3><p>Blue is used for connectivity-specific separators, highlights and diagrams.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="responsive" class="ds-section section-soft">
+    <div class="container">
+      <p class="eyebrow">08 · Responsive behavior</p>
+      <h2>Desktop conference structure, simplified on smaller screens</h2>
+      <table class="breakpoint-table">
+        <thead><tr><th>Range</th><th>Behavior</th></tr></thead>
+        <tbody>
+          <tr><td>≥ 961px</td><td>Full masthead, horizontal navigation, content + sidebar, 3-column theme sections.</td></tr>
+          <tr><td>761–960px</td><td>Sidebar moves below main content; two-column cards are allowed; masthead remains visible.</td></tr>
+          <tr><td>≤ 760px</td><td>Single-column layout, explicit Menu button, no hidden nested navigation, stacked actions and tables that degrade to readable blocks.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="accessibility" class="ds-section">
+    <div class="container">
+      <p class="eyebrow">09 · Accessibility & cognitive load</p>
+      <h2>Predictable for keyboard, screen-reader, ADHD and autistic users</h2>
+      <div class="ds-component-grid">
+        <div class="ds-demo"><h3>Navigation</h3><ul><li>One primary menu.</li><li>No nested mega-menu.</li><li>Primary destinations reachable in one interaction.</li><li>Mobile menu is explicit and labelled.</li></ul></div>
+        <div class="ds-demo"><h3>Reading</h3><ul><li>Maximum reading width around 72 characters.</li><li>Headings describe what follows.</li><li>Long information uses sections, tables and lists instead of decorative fragments.</li><li>Important status text is stated, not encoded only by color.</li></ul></div>
+        <div class="ds-demo"><h3>Motion & focus</h3><ul><li>No mandatory animation.</li><li>prefers-reduced-motion is respected.</li><li>Keyboard focus must remain visible.</li><li>Skip-to-content is present.</li></ul></div>
+        <div class="ds-demo"><h3>Agent rule</h3><p>Do not “improve” this system by adding visual novelty. Changes need a content, usability or accessibility justification and must preserve the conference-site information hierarchy.</p></div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

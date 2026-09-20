@@ -1,0 +1,42 @@
+---
+import '../styles.css';
+import SiteHeader from './SiteHeader.astro';
+import SiteFooter from './SiteFooter.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  active?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = 'ICAMC 2027',
+  description = 'International Conference on Automation, Mobility and Connectivity — 2–6 August 2027, Split, Croatia.',
+  active = '',
+  noindex = false,
+} = Astro.props;
+
+const fullTitle = title === 'ICAMC 2027' ? title : `${title} | ICAMC 2027`;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
+    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+    <meta name="theme-color" content="#003b5c" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <title>{fullTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <SiteHeader active={active} />
+    <main id="main-content"><slot /></main>
+    <SiteFooter />
+  </body>
+</html>

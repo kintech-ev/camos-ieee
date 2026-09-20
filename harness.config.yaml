@@ -1,0 +1,29 @@
+version: 1
+project: icamc-2027-website
+active_spec: specs/001-icamc-2027-site/spec.md
+constitution: .specify/memory/constitution.md
+model_routing: model-routing.yaml
+
+entrypoints:
+  content: src/content.ts
+  styles: src/styles.css
+  design_system: src/pages/design-system.astro
+  home: src/pages/index.astro
+
+commands:
+  dev: npm run dev
+  verify: npm run check
+  build: npm run build
+  deploy: npm run deploy
+
+quality_gates:
+  - content_guard
+  - astro_typecheck
+  - production_build
+
+change_policy:
+  max_active_tasks: 1
+  unrelated_refactors: false
+  new_directories_require_spec_need: true
+  invented_conference_facts: false
+  visual_source_of_truth: src/pages/design-system.astro

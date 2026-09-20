@@ -1,0 +1,27 @@
+{
+  "name": "icamc-2027-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "content:check": "node scripts/check-content.mjs",
+    "check": "npm run content:check && astro check && astro build",
+    "deploy": "npm run check && wrangler deploy"
+  },
+  "dependencies": {
+    "astro": "^7.2.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "typescript": "^5.9.2",
+    "wrangler": "^4.37.1"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "esbuild@0.28.1": true,
+    "workerd@1.20260918.1": true
+  }
+}

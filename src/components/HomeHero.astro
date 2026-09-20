@@ -1,0 +1,21 @@
+---
+import { conference } from '../content';
+---
+<section class="home-hero" aria-labelledby="home-hero-title">
+  <img src="/assets/split-hero.webp" alt="Coastal cityscape representing Split, Croatia" />
+  <div class="home-hero-overlay"></div>
+  <div class="container home-hero-content">
+    <p class="eyebrow light">International Conference · 2027</p>
+    <h1 id="home-hero-title">Automation, Mobility<br />and Connectivity</h1>
+    <p class="home-hero-lead">{conference.tagline}</p>
+    <div class="hero-meta">
+      <span>{conference.dates}</span>
+      <span>{conference.city}, {conference.country}</span>
+      <span>{conference.format}</span>
+    </div>
+    <div class="hero-actions">
+      <a class="button button-primary" href="/call-for-papers">Call for Papers</a>
+      <a class="button button-ghost-light" href="#themes">Explore the Themes</a>
+    </div>
+  </div>
+</section>

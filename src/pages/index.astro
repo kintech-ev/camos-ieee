@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import HomeHero from '../components/HomeHero.astro';
+import SidebarPanel from '../components/SidebarPanel.astro';
+import {
+  conference,
+  importantUpdates,
+  quickLinks,
+  themes,
+  scientificLeadership,
+  statusFacts,
+} from '../content';
+---
+<BaseLayout active="/">
+  <HomeHero />
+
+  <section class="announcement" aria-label="Conference announcement">
+    <div class="container announcement-inner">
+      <span class="announcement-label">Planning update</span>
+      <strong>{conference.dates} · {conference.city}, {conference.country} · {conference.format}</strong>
+      <a class="announcement-link" href="/venue-registration">Venue & registration status →</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-with-sidebar">
+      <div class="content-column">
+        <div class="content-block">
+          <p class="eyebrow">Welcome to ICAMC 2027</p>
+          <h2>A conference built around systems that move, act and connect</h2>
+          <p>
+            {conference.summary} The conference is organized and promoted by KINTECH and is planned as a hybrid event in Split, Croatia, from 2 to 6 August 2027.
+          </p>
+          <p>
+            ICAMC is structured around three scientific themes—Automation, Mobility and Connectivity—while also welcoming work at their intersections, including digital twins, cyber-physical systems, intelligent transportation, 5G/6G, V2X, autonomous systems, distributed intelligence, AI, security, sustainability and emerging connected applications.
+          </p>
+        </div>
+
+        <div class="notice success">
+          <strong>Rolling review and notification</strong>
+          <p>
+            ICAMC 2027 plans to use a continuous review and notification process so that submitted work can be assessed in a timely manner and decisions can be communicated as reviews are completed.
+          </p>
+        </div>
+
+        <div class="fact-strip" aria-label="Conference facts">
+          <div class="fact"><strong>{conference.dates}</strong><span>Conference dates</span></div>
+          <div class="fact"><strong>{conference.city}</strong><span>Croatia</span></div>
+          <div class="fact"><strong>Hybrid</strong><span>On-site and online participation planned</span></div>
+          <div class="fact"><strong>3 themes</strong><span>Automation · Mobility · Connectivity</span></div>
+        </div>
+      </div>
+
+      <div class="sidebar-stack">
+        <SidebarPanel title="Important Updates" tone="navy">
+          <ul class="update-list">
+            {importantUpdates.map((item) => (
+              <li>
+                <span class="update-date">{item.date}</span>
+                <strong>{item.title}</strong>
+                <span>{item.body}</span>
+              </li>
+            ))}
+          </ul>
+        </SidebarPanel>
+        <SidebarPanel title="Quick Links" tone="blue">
+          <ul>
+            {quickLinks.map((item) => <li><a href={item.href}>{item.label} →</a></li>)}
+          </ul>
+        </SidebarPanel>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft" id="themes">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Scientific themes</p>
+          <h2>Automation · Mobility · Connectivity</h2>
+          <p>Three central themes, each spanning physical, digital and cyber-physical systems.</p>
+        </div>
+        <a class="button button-outline" href="/call-for-papers">See full scope</a>
+      </div>
+
+      <div class="theme-grid">
+        {themes.map((theme, index) => (
+          <article class:list={['theme-card', theme.accent]} id={theme.slug}>
+            <span class="theme-number">0{index + 1} · {theme.label}</span>
+            <h3>{theme.label}</h3>
+            <p><strong>{theme.lead}</strong></p>
+            <p>{theme.description}</p>
+            <p>{theme.bridge}</p>
+            <div class="theme-chair">
+              <span>Scientific lead</span>
+              <strong>{theme.chair}</strong>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-navy" id="program">
+    <div class="container">
+      <div class="section-heading" style="border-color:rgba(255,255,255,.2)">
+        <div>
+          <p class="eyebrow light">Conference model</p>
+          <h2>Peer review, awards and publication pathway</h2>
+          <p style="color:#d9e8f2">The scientific model is being designed for timely review, clear publication requirements and recognition of outstanding work.</p>
+        </div>
+      </div>
+      <div class="theme-grid">
+        <div class="theme-card">
+          <span class="theme-number">Review</span>
+          <h3>Rolling notification</h3>
+          <p>{statusFacts.review}. Exact operational dates and service-level targets will be published before the submission portal opens.</p>
+        </div>
+        <div class="theme-card">
+          <span class="theme-number">Publication</span>
+          <h3>IEEE Xplore pathway</h3>
+          <p>{statusFacts.publication}</p>
+        </div>
+        <div class="theme-card">
+          <span class="theme-number">Recognition</span>
+          <h3>Best Paper Awards</h3>
+          <p>{statusFacts.awards}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Scientific leadership</p>
+          <h2>Three themes, three General Chairs</h2>
+          <p>Scientific leadership follows the conference's core thematic structure.</p>
+        </div>
+        <a href="/organization" class="button button-outline">Full organization</a>
+      </div>
+      <div class="leadership-grid">
+        {scientificLeadership.slice(0,3).map((person) => (
+          <article class="person-card">
+            <span class="role">{person.role}</span>
+            <h3>{person.name}</h3>
+            <span class="badge badge-confirmed">{person.status}</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-blue">
+    <div class="container split-feature">
+      <div class="split-feature-media">
+        <img src="/assets/split-hero.webp" alt="Split, Croatia coastal view" />
+      </div>
+      <div class="split-feature-copy">
+        <p class="eyebrow">Split, Croatia</p>
+        <h2>Host city for ICAMC 2027</h2>
+        <p>
+          The first ICAMC edition is planned for Split from 2 to 6 August 2027. Local organizational work includes identifying suitable facilities, confirming availability and cost, and preparing the on-site conference infrastructure.
+        </p>
+        <p>Hybrid participation is planned, enabling both in-person and online presentations.</p>
+        <a href="/venue-registration" class="button button-primary">Venue & registration details</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,86 @@
+version: 1
+purpose: "Use the smallest capable model while escalating architecture and release review deliberately."
+
+models:
+  fast:
+    env: ICAMC_MODEL_FAST
+    fallback: "provider-default-fast"
+    use_for:
+      - copy_edits
+      - metadata
+      - simple_content_updates
+      - mechanical_tasks
+  coding:
+    env: ICAMC_MODEL_CODING
+    fallback: "provider-default-coding"
+    use_for:
+      - astro_components
+      - css
+      - responsive_layout
+      - contained_refactors
+      - cloudflare_config
+  reasoning:
+    env: ICAMC_MODEL_REASONING
+    fallback: "provider-default-reasoning"
+    use_for:
+      - information_architecture
+      - design_system_changes
+      - cross_page_changes
+      - difficult_debugging
+      - spec_interpretation
+  reviewer:
+    env: ICAMC_MODEL_REVIEWER
+    fallback: "provider-default-reasoning"
+    mode: read_only
+    use_for:
+      - release_review
+      - accessibility_review
+      - visual_consistency_review
+      - content_claim_review
+
+routing:
+  default: fast
+  rules:
+    - when: "task changes .astro or CSS implementation"
+      use: coding
+    - when: "task changes navigation, page architecture, design tokens, or multiple routes"
+      use: reasoning
+    - when: "task is a final review or challenges correctness without editing"
+      use: reviewer
+
+escalation:
+  - from: fast
+    to: coding
+    when:
+      - implementation_required
+      - more_than_two_source_files
+  - from: coding
+    to: reasoning
+    when:
+      - architecture_decision
+      - cross_page_design_change
+      - unclear_specification
+      - same_failure_twice
+  - from: reasoning
+    to: reviewer
+    when:
+      - pre_release
+      - major_visual_change
+      - publication_or_ieee_claim_change
+
+context_policy:
+  read_first:
+    - .specify/memory/constitution.md
+    - specs/001-icamc-2027-site/spec.md
+    - specs/001-icamc-2027-site/tasks.md
+  prefer_targeted_reads: true
+  reread_unchanged_files: false
+  max_parallel_active_tasks: 1
+  forbid_env_reads: true
+
+completion:
+  required_command: "npm run check"
+  reviewer_required_for:
+    - navigation_change
+    - design_system_change
+    - release

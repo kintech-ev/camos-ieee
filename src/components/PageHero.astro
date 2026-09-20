@@ -1,0 +1,18 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  description: string;
+  image?: string;
+}
+const { eyebrow, title, description, image = '/assets/network-split.webp' } = Astro.props;
+---
+<section class="page-hero">
+  <img src={image} alt="" aria-hidden="true" />
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <p class="eyebrow light">{eyebrow}</p>
+    <h1>{title}</h1>
+    <p>{description}</p>
+  </div>
+</section>

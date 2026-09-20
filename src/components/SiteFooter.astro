@@ -1,0 +1,36 @@
+---
+import { conference, navigation } from '../content';
+---
+<footer class="site-footer">
+  <div class="footer-accent" aria-hidden="true">
+    <span class="a"></span><span class="m"></span><span class="c"></span>
+  </div>
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <img src="/assets/icamc-logo.png" alt="ICAMC" width="210" height="74" />
+      <strong>{conference.name}</strong>
+      <span>{conference.dates} · {conference.city}, {conference.country}</span>
+      <span>{conference.format}</span>
+    </div>
+    <div>
+      <h2 class="footer-title">Conference</h2>
+      <ul class="footer-links">
+        {navigation.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+      </ul>
+    </div>
+    <div>
+      <h2 class="footer-title">Status</h2>
+      <ul class="footer-links footer-static">
+        <li>Submission portal: to be announced</li>
+        <li>Rolling review planned</li>
+        <li>IEEE Xplore pathway subject to approval</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container footer-bottom-inner">
+      <span>© 2027 ICAMC. Conference organization by KINTECH.</span>
+      <span>Automation · Mobility · Connectivity</span>
+    </div>
+  </div>
+</footer>

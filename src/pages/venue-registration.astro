@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import SidebarPanel from '../components/SidebarPanel.astro';
+import { conference, registrationTiers, statusFacts } from '../content';
+---
+<BaseLayout title="Venue & Registration" active="/venue-registration">
+  <PageHero
+    eyebrow="Attend ICAMC 2027"
+    title="Split, Croatia"
+    description="Venue planning, hybrid participation and registration information for 2–6 August 2027."
+    image="/assets/split-hero.webp"
+  />
+  <div class="breadcrumbs"><div class="container"><a href="/">Home</a> / Venue & Registration</div></div>
+
+  <section class="section">
+    <div class="container content-with-sidebar">
+      <div class="content-column">
+        <div class="content-block">
+          <p class="eyebrow">Host city</p>
+          <h2>ICAMC 2027 in Split</h2>
+          <p>
+            The first edition of ICAMC is planned for {conference.dates} in {conference.city}, {conference.country}. The conference is planned in hybrid format, enabling both on-site and online presentations.
+          </p>
+          <p>
+            Prof. Dr. Ivan Aleksi serves as Local Organizing Chair and will support the verification of suitable facilities, availability and costs in Croatia, together with local organizational preparation. A second Local Organizing Chair is expected to be appointed.
+          </p>
+        </div>
+
+        <div class="notice warning">
+          <strong>Final venue not yet published</strong>
+          <p>{statusFacts.venue}. The website will publish the official venue, travel information and accommodation guidance after local verification is complete.</p>
+        </div>
+
+        <div class="content-block">
+          <p class="eyebrow">Registration planning</p>
+          <h2>Three planned registration tiers</h2>
+          <div class="registration-grid">
+            {registrationTiers.map((tier) => (
+              <section class="registration-card">
+                <h3>{tier.name}</h3>
+                <div class="registration-card-body">
+                  <span class="registration-price">{tier.status}</span>
+                  <p>{tier.note}</p>
+                </div>
+              </section>
+            ))}
+          </div>
+        </div>
+
+        <div class="content-block">
+          <p class="eyebrow">Participation support</p>
+          <h2>Registration-fee reductions</h2>
+          <p>{statusFacts.support}</p>
+        </div>
+
+        <div class="content-block">
+          <p class="eyebrow">Hybrid participation</p>
+          <h2>On-site and online presentations</h2>
+          <p>
+            Hybrid participation is planned so accepted presenters can participate either in Split or online. Exact technical requirements, presentation formats, time-zone handling and remote-session procedures will be published with the final conference program and author instructions.
+          </p>
+        </div>
+      </div>
+
+      <div class="sidebar-stack">
+        <SidebarPanel title="Conference at a Glance" tone="navy">
+          <table class="info-table">
+            <tbody>
+              <tr><th>Date</th><td>{conference.dates}</td></tr>
+              <tr><th>City</th><td>{conference.city}</td></tr>
+              <tr><th>Country</th><td>{conference.country}</td></tr>
+              <tr><th>Format</th><td>{conference.format}</td></tr>
+              <tr><th>Venue</th><td>To be announced</td></tr>
+            </tbody>
+          </table>
+        </SidebarPanel>
+        <SidebarPanel title="Registration Status" tone="blue">
+          <ul>
+            <li>Super Early Bird — planned</li>
+            <li>Early Bird — planned</li>
+            <li>Regular — planned</li>
+            <li>Final rates — pending cost model</li>
+          </ul>
+        </SidebarPanel>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

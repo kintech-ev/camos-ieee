@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../components/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import SidebarPanel from '../components/SidebarPanel.astro';
+import { scientificLeadership, operationalRoles } from '../content';
+
+const badgeClass = (status: string) => {
+  if (status === 'Confirmed') return 'badge-confirmed';
+  if (status === 'Planned') return 'badge-planned';
+  if (status.includes('confirmation')) return 'badge-pending';
+  return 'badge-open';
+};
+---
+<BaseLayout title="Organization" active="/organization">
+  <PageHero
+    eyebrow="ICAMC 2027"
+    title="Organization"
+    description="Scientific, administrative and operational responsibilities for the first edition of ICAMC."
+  />
+  <div class="breadcrumbs"><div class="container"><a href="/">Home</a> / Organization</div></div>
+
+  <section class="section">
+    <div class="container content-with-sidebar">
+      <div>
+        <section class="organization-section">
+          <p class="eyebrow">Scientific direction</p>
+          <h2>General Chairs by thematic area</h2>
+          <p class="readable">The scientific leadership is organized around the three central ICAMC themes. Each area is also expected to have a General Co-Chair.</p>
+          <table class="organization-table">
+            <thead><tr><th>Area</th><th>Role</th><th>Name</th><th>Status</th></tr></thead>
+            <tbody>
+              {scientificLeadership.map((person) => (
+                <tr>
+                  <td><strong>{person.area}</strong></td>
+                  <td>{person.role}</td>
+                  <td>{person.name}</td>
+                  <td><span class:list={['badge', badgeClass(person.status)]}>{person.status}</span></td>
+                </tr>
+              ))}
+              <tr>
+                <td><strong>Automation</strong></td>
+                <td>General Co-Chair of Automation</td>
+                <td>To be indicated by the General Chair</td>
+                <td><span class="badge badge-open">Open</span></td>
+              </tr>
+              <tr>
+                <td><strong>Mobility</strong></td>
+                <td>General Co-Chair of Mobility</td>
+                <td>To be indicated by the General Chair</td>
+                <td><span class="badge badge-open">Open</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="organization-section">
+          <p class="eyebrow">Conference operations</p>
+          <h2>Administrative and operational roles</h2>
+          <table class="organization-table">
+            <thead><tr><th>Role</th><th>Person</th><th>Status</th><th>Responsibility</th></tr></thead>
+            <tbody>
+              {operationalRoles.map((item) => (
+                <tr>
+                  <td><strong>{item.role}</strong></td>
+                  <td>{item.name}</td>
+                  <td><span class:list={['badge', badgeClass(item.status)]}>{item.status}</span></td>
+                  <td>{item.responsibility}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+
+        <div class="notice" style="margin-top:2rem">
+          <strong>Appointments still in progress</strong>
+          <p>Additional functions and Co-Chairs may be created or appointed as scientific, administrative and operational needs evolve. Planned appointments become final only after the respective person confirms acceptance.</p>
+        </div>
+      </div>
+
+      <div class="sidebar-stack">
+        <SidebarPanel title="Organization Principle" tone="navy">
+          <p>Responsibilities are separated into scientific leadership, publication, local organization, web, finance, registration, publicity and international liaison.</p>
+        </SidebarPanel>
+        <SidebarPanel title="Scientific Areas" tone="blue">
+          <ul>
+            <li><a href="/#automation">Automation</a></li>
+            <li><a href="/#mobility">Mobility</a></li>
+            <li><a href="/#connectivity">Connectivity</a></li>
+          </ul>
+        </SidebarPanel>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
