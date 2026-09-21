@@ -1,6 +1,10 @@
 import fs from 'node:fs';
 
-const source = fs.readFileSync(new URL('../src/content.ts', import.meta.url), 'utf8');
+const sourceFiles = [
+  new URL('../src/content.ts', import.meta.url),
+  new URL('../src/content-strings.ts', import.meta.url),
+];
+const source = sourceFiles.map((file) => fs.readFileSync(file, 'utf8')).join('\n');
 const forbidden = [
   '7–11 June 2027',
   '15 March 2027',

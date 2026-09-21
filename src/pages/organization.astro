@@ -3,13 +3,6 @@ import BaseLayout from '../components/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import SidebarPanel from '../components/SidebarPanel.astro';
 import { scientificLeadership, operationalRoles } from '../content';
-
-const badgeClass = (status: string) => {
-  if (status === 'Confirmed') return 'badge-confirmed';
-  if (status === 'Planned') return 'badge-planned';
-  if (status.includes('confirmation')) return 'badge-pending';
-  return 'badge-open';
-};
 ---
 <BaseLayout title="Organization" active="/organization">
   <PageHero
@@ -27,27 +20,24 @@ const badgeClass = (status: string) => {
           <h2>General Chairs by thematic area</h2>
           <p class="readable">The scientific leadership is organized around the three central ICAMC themes. Each area is also expected to have a General Co-Chair.</p>
           <table class="organization-table">
-            <thead><tr><th>Area</th><th>Role</th><th>Name</th><th>Status</th></tr></thead>
+            <thead><tr><th>Area</th><th>Role</th><th>Name</th></tr></thead>
             <tbody>
               {scientificLeadership.map((person) => (
                 <tr>
                   <td><strong>{person.area}</strong></td>
                   <td>{person.role}</td>
                   <td>{person.name}</td>
-                  <td><span class:list={['badge', badgeClass(person.status)]}>{person.status}</span></td>
                 </tr>
               ))}
               <tr>
                 <td><strong>Automation</strong></td>
                 <td>General Co-Chair of Automation</td>
                 <td>To be indicated by the General Chair</td>
-                <td><span class="badge badge-open">Open</span></td>
               </tr>
               <tr>
                 <td><strong>Mobility</strong></td>
                 <td>General Co-Chair of Mobility</td>
                 <td>To be indicated by the General Chair</td>
-                <td><span class="badge badge-open">Open</span></td>
               </tr>
             </tbody>
           </table>
@@ -57,14 +47,12 @@ const badgeClass = (status: string) => {
           <p class="eyebrow">Conference operations</p>
           <h2>Administrative and operational roles</h2>
           <table class="organization-table">
-            <thead><tr><th>Role</th><th>Person</th><th>Status</th><th>Responsibility</th></tr></thead>
+            <thead><tr><th>Role</th><th>Person</th></tr></thead>
             <tbody>
               {operationalRoles.map((item) => (
                 <tr>
                   <td><strong>{item.role}</strong></td>
                   <td>{item.name}</td>
-                  <td><span class:list={['badge', badgeClass(item.status)]}>{item.status}</span></td>
-                  <td>{item.responsibility}</td>
                 </tr>
               ))}
             </tbody>
