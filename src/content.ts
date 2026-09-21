@@ -226,14 +226,14 @@ export const operationalRoles = [
   },
   {
     role: 'Web Chair / Webmaster',
-    name: 'Giovanni — University of Brasília (UnB)',
+    name: 'Giovanni — University of Brasília (UnB); Alley Pereira',
     status: 'Planned',
     responsibility:
       'Responsible for the conference web presence, maintenance and online infrastructure.',
   },
   {
     role: 'Finance Chair / Treasurer',
-    name: 'Antonio',
+    name: 'Antonio Santos da Silva',
     status: 'Planned',
     responsibility:
       'Coordinates budgeting, registration finances and conference revenue and expenditure tracking.',
