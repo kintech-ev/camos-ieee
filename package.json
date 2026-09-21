@@ -8,8 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "content:check": "node scripts/check-content.mjs",
-    "check": "npm run content:check && astro check && astro build",
-    "deploy": "npm run check && wrangler pages deploy dist --project-name \"$CLOUDFLARE_PAGES_PROJECT\""
+    "check": "npm run content:check && astro check && astro build"
   },
   "dependencies": {
     "astro": "^7.2.1"
