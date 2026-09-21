@@ -229,7 +229,7 @@ export const operationalRoles = [
     name: 'Giovanni — University of Brasília (UnB); Alley Pereira',
     status: 'Planned',
     responsibility:
-      'Responsible for the conference web presence, maintenance and online infrastructure.',
+      'Giovanni supervises the conference web presence and related webmaster activities. Alley Pereira provides and maintains the online infrastructure supporting the conference website.',
   },
   {
     role: 'Finance Chair / Treasurer',
