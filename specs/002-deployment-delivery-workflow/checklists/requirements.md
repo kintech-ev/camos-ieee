@@ -31,5 +31,5 @@
 
 ## Notes
 
-- Validation pass: all checklist items pass. The specification intentionally names Cloudflare Pages, GitHub, branches, and pages.dev because those are explicit user constraints and deployment acceptance surfaces, while avoiding implementation details for the website itself.
+- Validation pass: all checklist items pass. The specification intentionally names Cloudflare Pages, GitHub, branches, pages.dev, `npm run check`, and the future IEEE hostnames because these are explicit delivery constraints and acceptance surfaces. It preserves the existing website scope and documents manual account checkpoints, security boundaries, rollback, and domain attachment without redesigning the application.
 - Ready for `/speckit-plan`.

@@ -47,10 +47,11 @@ Build:
 npm run build
 ```
 
-Deploy static output through Wrangler:
+Deploy the static output to the configured Cloudflare Pages project through Wrangler:
 
 ```bash
+export CLOUDFLARE_PAGES_PROJECT=<project-name>
 npm run deploy
 ```
 
-The production domain can be registered elsewhere. Point/delegate DNS to Cloudflare and attach the custom domain to the Worker after the preview deployment is verified.
+The CI/CD workflow validates pull requests and branch pushes, creates eligible previews, deploys `dev` to staging, and deploys `main` to production. Cloudflare account authorization, GitHub authorization, project creation, and secrets are manual setup checkpoints. See [DEPLOYMENT.md](DEPLOYMENT.md) for setup, rollback, and future custom-domain procedures.

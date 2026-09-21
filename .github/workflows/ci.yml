@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - dev
+      - main
+  push:
+    branches:
+      - '**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate application
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run mandatory application gate
+        run: npm run check
+
+      - name: Audit production dependencies
+        run: npm audit --audit-level=high
+
+      - name: Check for committed secrets
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git grep -nEI '(^|[[:space:]]|=)(ghp_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{20,}|sk-[A-Za-z0-9]{20,}|r[0-9a-zA-Z_-]{20,}|CF_API_TOKEN[[:space:]]*[:=])' -- . ':!.git/*'; then
+            echo 'Potential credential material found in tracked files.' >&2
+            exit 1
+          fi
+
+      - name: Check workflow and source whitespace
+        run: git diff --check
