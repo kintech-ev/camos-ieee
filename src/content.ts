@@ -226,21 +226,21 @@ export const operationalRoles = [
   },
   {
     role: 'Web Chair / Webmaster',
-    name: 'Giovanni Almeida Santos — University of Brasília (UnB)\nAlley Pereira — Federal Institute of Ceará (IFCE)',
+    name: 'Prof. Giovanni Almeida Santos — University of Brasília (UnB)\nAlley Pereira — Federal Institute of Ceará (IFCE)',
     status: 'Planned',
     responsibility:
       'Giovanni supervises the conference web presence and related webmaster activities. Alley Pereira provides and maintains the online infrastructure supporting the conference website.',
   },
   {
     role: 'Finance Chair / Treasurer',
-    name: 'Antonio Santos da Silva',
+    name: 'Prof. Antonio Santos da Silva',
     status: 'Planned',
     responsibility:
       'Coordinates budgeting, registration finances and conference revenue and expenditure tracking.',
   },
   {
     role: 'Registration Chair',
-    name: 'Kevin — University of Brasília (UnB)',
+    name: 'Kevin Herman Muraro Gularte, Ph.D. — University of Brasília (UnB)',
     status: 'Subject to confirmation',
     responsibility:
       'Coordinates participant registration together with the Finance Chair and the broader organizing team.',
