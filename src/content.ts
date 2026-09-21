@@ -226,7 +226,7 @@ export const operationalRoles = [
   },
   {
     role: 'Web Chair / Webmaster',
-    name: 'Giovanni — University of Brasília (UnB); Alley Pereira - Federal Institute of Ceará (IFCE)',
+    name: 'Giovanni Almeida Santos — University of Brasília (UnB)\nAlley Pereira — Federal Institute of Ceará (IFCE)',
     status: 'Planned',
     responsibility:
       'Giovanni supervises the conference web presence and related webmaster activities. Alley Pereira provides and maintains the online infrastructure supporting the conference website.',

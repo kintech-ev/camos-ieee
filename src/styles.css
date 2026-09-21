@@ -267,7 +267,7 @@ p:last-child { margin-bottom: 0; }
 .organization-table { width: 100%; border-collapse: collapse; border-top: 3px solid var(--navy-900); }
 .organization-table th, .organization-table td { border-bottom: 1px solid var(--line); padding: .9rem .8rem; text-align: left; vertical-align: top; }
 .organization-table th { background: var(--surface-soft); color: var(--navy-900); font-size: .85rem; text-transform: uppercase; letter-spacing: .04em; }
-.organization-table td { color: var(--ink-700); }
+.organization-table td { color: var(--ink-700); white-space: pre-line; }
 .organization-table td strong { color: var(--navy-900); }
 
 .badge { display: inline-flex; align-items: center; min-height: 25px; padding: .15rem .48rem; border-radius: 999px; font-size: .72rem; font-weight: 800; white-space: nowrap; }
