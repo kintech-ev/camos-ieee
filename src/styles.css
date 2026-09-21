@@ -194,6 +194,22 @@ p:last-child { margin-bottom: 0; }
 .sidebar-panel-body li { padding: .58rem 0; border-bottom: 1px solid var(--line); }
 .sidebar-panel-body li:last-child { border-bottom: 0; }
 .sidebar-panel-body a { font-weight: 700; text-decoration: none; }
+.placeholder-link {
+  display: block;
+  color: var(--ink-500);
+  text-decoration: none;
+  cursor: default;
+}
+.placeholder-link::before {
+  content: "";
+  display: inline-block;
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 50%;
+  background: var(--ink-500);
+  margin-right: 0.45rem;
+  vertical-align: middle;
+}
 
 .update-list { list-style: none; margin: 0; padding: 0; }
 .update-list li { display: grid; gap: .18rem; padding: .75rem 0; border-bottom: 1px solid var(--line); }

@@ -29,7 +29,7 @@ This repository is intentionally small. Do not add architecture unless the activ
 - Do not create a new directory without a current requirement.
 - Do not duplicate conference facts inside components.
 - Do not invent dates, fees, names, venue details, URLs, IEEE status or publication guarantees.
-- Do not create a KINTECH section or route.
+- Provide a /kintech redirect to https://www.kintech-ev.de/ when the active task requires it.
 - Do not add a UI framework for static content.
 - Do not replace the conference-site design with dashboard, glassmorphism or startup landing-page patterns.
 - `/design-system` and `src/styles.css` are canonical for visual changes.

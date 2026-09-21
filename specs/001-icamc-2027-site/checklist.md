@@ -4,7 +4,7 @@
 - [ ] No obsolete ICAMC date remains
 - [ ] No unapproved registration fee is displayed
 - [ ] No claim of guaranteed IEEE Xplore publication is present
-- [ ] `/kintech` does not exist
+- [ ] `/kintech` redirects to https://www.kintech-ev.de/
 - [ ] Theme colors are semantic, not decorative
 - [ ] Keyboard navigation is usable
 - [ ] Mobile menu is labelled and reachable

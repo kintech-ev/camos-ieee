@@ -62,6 +62,7 @@ An organizer can find scientific leadership, operational roles, and whether each
 - Do not claim confirmed IEEE sponsorship or guaranteed IEEE Xplore inclusion.
 - Do not invent registration values or final submission deadlines.
 - KINTECH Journal may be mentioned only as a separate publication initiative when relevant; it is not an ICAMC site section or route.
+- A `/kintech` redirect exists and points to https://www.kintech-ev.de/.
 
 ## Acceptance criteria
 
@@ -71,4 +72,4 @@ An organizer can find scientific leadership, operational roles, and whether each
 4. `/design-system` visibly documents and renders foundations, layout, components, states, responsive behavior and accessibility rules.
 5. `npm run check` passes after dependencies are installed.
 6. The site can be built statically and deployed with Wrangler/Cloudflare.
-7. No `/kintech` route exists.
+7. The `/kintech` route redirects to https://www.kintech-ev.de/.
