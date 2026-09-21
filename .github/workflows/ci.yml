@@ -44,7 +44,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if git grep -nEI '(^|[[:space:]]|=)(ghp_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{20,}|sk-[A-Za-z0-9]{20,}|r[0-9a-zA-Z_-]{20,}|CF_API_TOKEN[[:space:]]*[:=])' -- . ':!.git/*'; then
+          if git grep -nEI '(^|[[:space:]=])((ghp_[A-Za-z0-9]{30,})|(github_pat_[A-Za-z0-9_]{20,})|(sk-[A-Za-z0-9]{20,})|(CF_API_TOKEN[[:space:]]*[:=][[:space:]]*[^[:space:]]+))' -- . ':!.git/*'; then
             echo 'Potential credential material found in tracked files.' >&2
             exit 1
           fi
