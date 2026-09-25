@@ -1,6 +1,6 @@
 export const conference = {
-  shortName: 'ICAMC 2027',
-  name: 'International Conference on Automation, Mobility and Connectivity',
+  shortName: 'CAMoS 2027',
+  name: 'International Conference on Connectivity, Automation and Mobile Systems',
   dates: '2–6 August 2027',
   startDate: '2027-08-02',
   endDate: '2027-08-06',
@@ -8,9 +8,10 @@ export const conference = {
   country: 'Croatia',
   format: 'Hybrid conference',
   organizer: 'KINTECH',
-  tagline: 'Connecting physical and digital worlds through automation, mobility and connectivity.',
+  submissionUrl: 'https://easychair.org/cfp/camos2027',
+  tagline: 'Connecting physical and digital worlds through connectivity, automation and mobile systems.',
   summary:
-    'ICAMC 2027 brings together research, engineering and practice across automation, mobility and connectivity, with a deliberate focus on how physical and digital systems increasingly interact.',
+    'CAMoS 2027 brings together research, engineering and practice across connectivity, automation and mobile systems, with a deliberate focus on how physical and digital systems increasingly interact.',
 };
 
 export const navigation = [
@@ -31,7 +32,7 @@ export const quickLinks = [
 export const importantUpdates = [
   {
     date: 'September 2026',
-    title: 'ICAMC 2027 established',
+    title: 'CAMoS 2027 planning',
     body: 'The conference is being structured for 2–6 August 2027 in Split, Croatia, with hybrid participation planned.',
   },
   {
@@ -40,13 +41,24 @@ export const importantUpdates = [
     body: 'Submissions are planned to be evaluated continuously, with decisions communicated as reviews are completed.',
   },
   {
-    date: 'To be announced',
-    title: 'Submission portal and registration',
-    body: 'Final submission dates, registration rates and venue details will be published after the respective approvals and cost planning are completed.',
+    date: 'Available',
+    title: 'Paper submission and registration',
+    body: 'The EasyChair CFP link is available. Final submission dates, registration rates and venue details will be published after the respective approvals and cost planning are completed.',
   },
 ];
 
 export const themes = [
+  {
+    slug: 'connectivity',
+    label: 'Connectivity',
+    accent: 'connectivity',
+    chair: 'Prof. Dr.-Ing. João Paulo Javidi da Costa',
+    lead: 'The foundation connecting physical and digital ecosystems.',
+    description:
+      'In the physical domain, connectivity links sensors, actuators, machines, robots, vehicles, infrastructure and people. In the digital domain, it links software systems, services, digital twins, virtual environments, data spaces and intelligent or autonomous agents.',
+    bridge:
+      'Physical–digital connectivity bridges both domains, allowing connected sensing to update digital representations and digital decisions to influence physical processes through actuators and control systems.',
+  },
   {
     slug: 'automation',
     label: 'Automation',
@@ -59,26 +71,15 @@ export const themes = [
       'Cyber-physical automation connects both domains: decisions in digital environments influence physical processes, while physical systems continuously update their digital counterparts.',
   },
   {
-    slug: 'mobility',
-    label: 'Mobility',
-    accent: 'mobility',
+    slug: 'mobile-systems',
+    label: 'Mobile Systems',
+    accent: 'mobile-systems',
     chair: 'Dr.-Ing. habil. (Interim Prof.) Tai Fei',
-    lead: 'Movement across physical and virtual environments.',
+    lead: 'Connected systems operating across physical and virtual environments.',
     description:
-      'Physical mobility covers the movement of people, goods, robots and vehicles through physical space. Virtual mobility covers the movement or navigation of people, avatars, agents and representations through digital twins, immersive environments, telepresence systems and other virtual spaces.',
+      'Mobile systems include connected vehicles, robots and devices operating in physical space, as well as software agents and representations moving through digital twins, immersive environments and telepresence systems.',
     bridge:
-      'ICAMC examines how both forms of mobility increasingly depend on intelligent, connected and interoperable systems.',
-  },
-  {
-    slug: 'connectivity',
-    label: 'Connectivity',
-    accent: 'connectivity',
-    chair: 'Prof. Dr.-Ing. João Paulo Javidi da Costa',
-    lead: 'The foundation connecting physical and digital ecosystems.',
-    description:
-      'In the physical domain, connectivity links sensors, actuators, machines, robots, vehicles, infrastructure and people. In the digital domain, it links software systems, services, digital twins, virtual environments, data spaces and intelligent or autonomous agents.',
-    bridge:
-      'Physical–digital connectivity bridges both domains, allowing connected sensing to update digital representations and digital decisions to influence physical processes through actuators and control systems.',
+      'CAMoS examines how mobile systems depend on intelligent, connected and interoperable infrastructure.',
   },
 ];
 
@@ -96,7 +97,7 @@ export const scopeGroups = [
     ],
   },
   {
-    title: 'Mobility, Vehicles and Transportation',
+    title: 'Mobile Systems, Vehicles and Transportation',
     items: [
       'Electric, autonomous, connected and cooperative vehicles',
       'Intelligent transport, traffic management and smart logistics',
@@ -201,7 +202,7 @@ export const registrationTiers = [
 ];
 
 export const statusFacts = {
-  submissionPortal: 'To be announced',
+  submissionPortal: 'EasyChair CFP available',
   venue: 'Final venue under local verification',
   review: 'Rolling review / notification planned',
   publication:
@@ -210,5 +211,5 @@ export const statusFacts = {
   support:
     'Registration-fee reductions of up to 50% may be granted to objectively justified and demonstrably under-represented groups. Eligibility, scope and evidence requirements will be documented and published transparently before registration opens. Discounts will not be cumulative.',
   journal:
-    'Selected ICAMC papers of particularly high scientific quality may be invited to submit a substantially extended version to the separate KINTECH Journal initiative. Any associated registration-fee waiver or reimbursement will be governed by the final published rules.',
+    'Selected CAMoS papers of particularly high scientific quality may be invited to submit a substantially extended version to the separate KINTECH Journal initiative. Any associated registration-fee waiver or reimbursement will be governed by the final published rules.',
 };

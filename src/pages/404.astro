@@ -2,12 +2,56 @@
 import BaseLayout from '../components/BaseLayout.astro';
 ---
 <BaseLayout title="Page not found" noindex={true}>
-  <section class="section">
-    <div class="container content-block" style="min-height:50vh;padding-top:3rem">
-      <p class="eyebrow">404</p>
-      <h1 style="font-size:clamp(2.6rem,7vw,5rem)">Page not found</h1>
-      <p>The requested conference page does not exist or has not been published yet.</p>
-      <a class="button button-primary" href="/">Return to ICAMC 2027</a>
+  <section class="not-found" aria-labelledby="not-found-title">
+    <div class="container not-found-inner">
+      <h1 id="not-found-title">Page not found</h1>
+      <p>The page you're looking for doesn't exist or has been moved.</p>
+      <a class="button button-primary not-found-link" href="/">
+        Go home <span aria-hidden="true">→</span>
+      </a>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .not-found {
+    display: grid;
+    min-height: 58vh;
+    place-items: center;
+    padding: clamp(4rem, 10vw, 8rem) 0;
+    background: var(--surface);
+  }
+
+  .not-found-inner {
+    max-width: 760px;
+    text-align: center;
+  }
+
+  .not-found h1 {
+    margin-bottom: 0.8rem;
+    color: var(--navy-900);
+    font-size: clamp(2.8rem, 6vw, 4.7rem);
+    letter-spacing: -0.045em;
+  }
+
+  .not-found p {
+    margin-bottom: 1.45rem;
+    color: var(--ink-700);
+    font-size: clamp(1rem, 2vw, 1.08rem);
+  }
+
+  .not-found-link {
+    gap: 0.55rem;
+    padding-inline: 1.15rem;
+  }
+
+  .not-found-link span {
+    font-size: 1.25rem;
+    line-height: 1;
+    transition: transform 0.16s ease;
+  }
+
+  .not-found-link:hover span {
+    transform: translateX(3px);
+  }
+</style>

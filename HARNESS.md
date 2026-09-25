@@ -1,4 +1,4 @@
-# ICAMC Development Harness
+# CAMoS Development Harness
 
 The harness exists to reduce decisions, not create more process.
 

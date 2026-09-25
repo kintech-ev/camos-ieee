@@ -19,8 +19,8 @@ The site blocks automated retrieval in the current implementation environment, s
 
 ## Publicly verifiable NOMS 2027 context
 
-Public announcements identify NOMS 2027 as an IEEE/IFIP Network Operations and Management Symposium in Montréal, Canada, 10–14 May 2027, with technical sessions, tutorials, demos, posters, panels and dissertation sessions. This context is used only to understand the type of conference information architecture; none of its event content is copied into ICAMC.
+Public announcements identify NOMS 2027 as an IEEE/IFIP Network Operations and Management Symposium in Montréal, Canada, 10–14 May 2027, with technical sessions, tutorials, demos, posters, panels and dissertation sessions. This context is used only to understand the type of conference information architecture; none of its event content is copied into CAMoS.
 
-## ICAMC visual source
+## CAMoS visual source
 
-The existing ICAMC CFP provides the conference logo and established green/orange/blue semantic identity across Automation, Mobility and Connectivity. Its brochure layout is not used as the website layout.
+The CAMoS identity uses a network emblem, a CAMoS wordmark and blue, green and orange accents for Connectivity, Automation and Mobile Systems. The earlier CFP artwork and logo are not used.

@@ -3,12 +3,11 @@ import { conference, navigation } from '../content';
 ---
 <footer class="site-footer">
   <div class="footer-accent" aria-hidden="true">
-    <span class="a"></span><span class="m"></span><span class="c"></span>
+    <span class="c"></span><span class="a"></span><span class="m"></span>
   </div>
   <div class="container footer-grid">
     <div class="footer-brand">
-      <img src="/assets/icamc-logo-footer.png" alt="ICAMC" width="210" height="74" />
-      <strong>{conference.name}</strong>
+      <img src="/assets/camos-logo-footer-white.png" alt="CAMoS 2027 — International Conference on Connectivity, Automation and Mobile Systems" width="1600" height="533" />
       <span>{conference.dates} · {conference.city}, {conference.country}</span>
       <span>{conference.format}</span>
     </div>
@@ -21,7 +20,7 @@ import { conference, navigation } from '../content';
     <div>
       <h2 class="footer-title">Status</h2>
       <ul class="footer-links footer-static">
-        <li>Submission portal: to be announced</li>
+        <li><a href={conference.submissionUrl}>Paper submissions (EasyChair CFP)</a></li>
         <li>Rolling review planned</li>
         <li>IEEE Xplore pathway subject to approval</li>
       </ul>
@@ -29,8 +28,8 @@ import { conference, navigation } from '../content';
   </div>
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
-      <span>© 2027 ICAMC. Conference organization by <a href="https://www.kintech-ev.de/">KINTECH</a>.</span>
-      <span>Automation · Mobility · Connectivity</span>
+      <span>© 2027 CAMoS. Conference organization by <a href="https://www.kintech-ev.de/">KINTECH</a>.</span>
+      <span>Connectivity · Automation · Mobile Systems</span>
     </div>
   </div>
 </footer>

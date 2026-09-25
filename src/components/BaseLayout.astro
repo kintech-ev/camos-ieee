@@ -11,13 +11,13 @@ interface Props {
 }
 
 const {
-  title = 'ICAMC 2027',
-  description = 'International Conference on Automation, Mobility and Connectivity — 2–6 August 2027, Split, Croatia.',
+  title = 'CAMoS 2027',
+  description = 'International Conference on Connectivity, Automation and Mobile Systems — 2–6 August 2027, Split, Croatia.',
   active = '',
   noindex = false,
 } = Astro.props;
 
-const fullTitle = title === 'ICAMC 2027' ? title : `${title} | ICAMC 2027`;
+const fullTitle = title === 'CAMoS 2027' ? title : `${title} | CAMoS 2027`;
 ---
 <!doctype html>
 <html lang="en">
@@ -26,7 +26,8 @@ const fullTitle = title === 'ICAMC 2027' ? title : `${title} | ICAMC 2027`;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex,nofollow" />}
-    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="alternate icon" type="image/png" href="/assets/favicon.png" sizes="64x64" />
     <meta name="theme-color" content="#003b5c" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />

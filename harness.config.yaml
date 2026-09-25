@@ -1,6 +1,6 @@
 version: 1
-project: icamc-2027-website
-active_spec: specs/001-icamc-2027-site/spec.md
+project: camos-2027-website
+active_spec: specs/001-camos-2027-site/spec.md
 constitution: .specify/memory/constitution.md
 model_routing: model-routing.yaml
 

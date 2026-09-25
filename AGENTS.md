@@ -5,8 +5,8 @@ This repository is intentionally small. Do not add architecture unless the activ
 ## Read in this order
 
 1. `.specify/memory/constitution.md`
-2. `specs/001-icamc-2027-site/spec.md`
-3. `specs/001-icamc-2027-site/tasks.md`
+2. `specs/001-camos-2027-site/spec.md`
+3. `specs/001-camos-2027-site/tasks.md`
 4. `HARNESS.md`
 5. `model-routing.yaml`
 
@@ -20,7 +20,7 @@ This repository is intentionally small. Do not add architecture unless the activ
 | Full visual system | `src/styles.css` |
 | Live design reference | `src/pages/design-system.astro` |
 | Assets | `public/assets/` |
-| Active product spec | `specs/001-icamc-2027-site/` |
+| Active product spec | `specs/001-camos-2027-site/` |
 
 ## Mandatory rules
 

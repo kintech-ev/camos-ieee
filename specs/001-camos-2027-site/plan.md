@@ -9,13 +9,13 @@ src/pages/       routes
 src/components/  shared page shell and reusable conference patterns
 src/content.ts   single source of truth for conference data
 src/styles.css   complete visual system
-public/assets/   ICAMC logo and web artwork
+public/assets/   CAMoS logo variants, favicon and web artwork
 ```
 
 ## Page model
 
 ### Home
-Utility bar → ICAMC masthead → primary nav → Split hero → planning update → welcome/content + sidebar → themes → review/publication → scientific leadership → Split teaser → footer.
+Utility bar → CAMoS masthead → primary nav → Split hero → planning update → welcome/content + sidebar → themes → review/publication → scientific leadership → Split teaser → footer.
 
 ### Call for Papers
 Page hero → breadcrumb → author content + sidebar → submission categories → topics → rolling review/publication.

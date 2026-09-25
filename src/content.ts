@@ -17,8 +17,8 @@ export const scientificLeadership = [
     name: 'Prof. Dr. Edison Pignaton de Freitas',
   },
   {
-    area: 'Mobility',
-    role: 'General Chair of Mobility',
+    area: 'Mobile Systems',
+    role: 'General Chair of Mobile Systems',
     name: 'Dr.-Ing. habil. (Interim Prof.) Tai Fei',
   },
   {

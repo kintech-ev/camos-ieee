@@ -3,7 +3,7 @@ purpose: "Use the smallest capable model while escalating architecture and relea
 
 models:
   fast:
-    env: ICAMC_MODEL_FAST
+    env: CAMoS_MODEL_FAST
     fallback: "provider-default-fast"
     use_for:
       - copy_edits
@@ -11,7 +11,7 @@ models:
       - simple_content_updates
       - mechanical_tasks
   coding:
-    env: ICAMC_MODEL_CODING
+    env: CAMoS_MODEL_CODING
     fallback: "provider-default-coding"
     use_for:
       - astro_components
@@ -20,7 +20,7 @@ models:
       - contained_refactors
       - cloudflare_config
   reasoning:
-    env: ICAMC_MODEL_REASONING
+    env: CAMoS_MODEL_REASONING
     fallback: "provider-default-reasoning"
     use_for:
       - information_architecture
@@ -29,7 +29,7 @@ models:
       - difficult_debugging
       - spec_interpretation
   reviewer:
-    env: ICAMC_MODEL_REVIEWER
+    env: CAMoS_MODEL_REVIEWER
     fallback: "provider-default-reasoning"
     mode: read_only
     use_for:
@@ -71,8 +71,8 @@ escalation:
 context_policy:
   read_first:
     - .specify/memory/constitution.md
-    - specs/001-icamc-2027-site/spec.md
-    - specs/001-icamc-2027-site/tasks.md
+    - specs/001-camos-2027-site/spec.md
+    - specs/001-camos-2027-site/tasks.md
   prefer_targeted_reads: true
   reread_unchanged_files: false
   max_parallel_active_tasks: 1

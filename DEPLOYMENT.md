@@ -1,4 +1,4 @@
-# ICAMC deployment
+# CAMoS deployment
 
 This repository deploys the existing static Astro site to one Cloudflare Pages project. GitHub is the source repository and GitHub Actions provides validation and controlled deployments.
 
@@ -10,7 +10,7 @@ This repository deploys the existing static Astro site to one Cloudflare Pages p
 | Staging | `dev` | `https://dev.<project>.pages.dev` | Persistent development review |
 | Production | `main` | `https://<project>.pages.dev` | Public release |
 
-The project name and exact pages.dev hostname are selected during the manual Cloudflare setup. The official `ieee-icamc.org` and `www.ieee-icamc.org` hostnames are not required for the first deployment.
+The project name and exact pages.dev hostname are selected during the manual Cloudflare setup. A custom conference domain is not required for the first deployment.
 
 ## Manual setup checkpoints
 
@@ -61,4 +61,4 @@ A rollback must not edit conference facts or require a website rebuild. Record t
 
 ## Future custom domains
 
-When IEEE provides and verifies the domain, attach `ieee-icamc.org` and `www.ieee-icamc.org` to the existing production Pages project in Cloudflare. Complete the required DNS and TLS verification there. Do not purchase or register a domain as part of repository automation, and do not remove the pages.dev hostname; it remains the fallback and deployment verification URL.
+When the conference domain and DNS access are approved, attach the approved apex and www hostnames to the existing production Pages project in Cloudflare. Complete the required DNS and TLS verification there. Do not purchase or register a domain as part of repository automation, and do not remove the pages.dev hostname; it remains the fallback and deployment verification URL.

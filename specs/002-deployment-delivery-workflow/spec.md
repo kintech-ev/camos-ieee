@@ -6,7 +6,7 @@
 
 **Status**: Draft
 
-**Input**: User description: "Add production delivery infrastructure for the existing ICAMC 2027 conference website without redesigning or rebuilding the existing website. The solution must provide a new Cloudflare-hosted project for the existing static Astro website, GitHub as the source repository, main as the production branch, dev as the persistent development/staging branch, automatic preview deployments for development branches and pull requests, automatic production deployment after changes reach main, CI validation before code can be promoted to production, npm run check as the mandatory application quality gate, security checks suitable for a static Astro conference website, no secrets committed to the repository, a temporary Cloudflare-provided hostname until the official ieee-icamc.org domain is provided by IEEE, future support for www.ieee-icamc.org without rebuilding or migrating the website, documented rollback and deployment procedures, clear separation between development, preview, and production, and preservation of all existing ICAMC specifications, content, design system, branding, and conference facts. Do not recreate the existing website specification, redesign the website, purchase or register a domain, invent IEEE approvals or conference information, or omit explicit manual checkpoints for Cloudflare account authorization, GitHub authorization, and required account-level setup."
+**Input**: User description: "Add production delivery infrastructure for the existing CAMoS 2027 conference website without redesigning or rebuilding the existing website. The solution must provide a new Cloudflare-hosted project for the existing static Astro website, GitHub as the source repository, main as the production branch, dev as the persistent development/staging branch, automatic preview deployments for development branches and pull requests, automatic production deployment after changes reach main, CI validation before code can be promoted to production, npm run check as the mandatory application quality gate, security checks suitable for a static Astro conference website, no secrets committed to the repository, a temporary Cloudflare-provided hostname until an official conference domain is approved, future support for the matching www hostname without rebuilding or migrating the website, documented rollback and deployment procedures, clear separation between development, preview, and production, and preservation of all existing CAMoS specifications, content, design system, branding, and conference facts. Do not recreate the existing website specification, redesign the website, purchase or register a domain, invent IEEE approvals or conference information, or omit explicit manual checkpoints for Cloudflare account authorization, GitHub authorization, and required account-level setup."
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -36,7 +36,7 @@ As a reviewer or organizer, I want changes targeting the persistent `dev` branch
 
 1. **Given** a validated change merged into persistent `dev`, **When** the delivery workflow completes, **Then** the change is deployed to the staging Cloudflare Pages environment using a stable pages.dev URL.
 2. **Given** an open pull request, **When** its deployment workflow completes, **Then** an isolated preview deployment is available and its URL is discoverable from the pull request checks or deployment status.
-3. **Given** a preview or staging deployment, **When** a reviewer opens the existing public routes, **Then** the routes render the existing ICAMC content and visual identity without requiring the future IEEE domain.
+3. **Given** a preview or staging deployment, **When** a reviewer opens the existing public routes, **Then** the routes render the existing CAMoS content and visual identity without requiring the future IEEE domain.
 
 ### User Story 3 - Promote an approved release (Priority: P1)
 
@@ -54,15 +54,15 @@ As a release owner, I want only approved changes on `main` to deploy to the prod
 
 ### User Story 4 - Attach the official domain later (Priority: P2)
 
-As a release owner, I want the future official IEEE domains, including `ieee-icamc.org` and `www.ieee-icamc.org`, to be attachable after IEEE provides and verifies them without redesigning, rebuilding, or migrating the website.
+As a release owner, I want the future approved conference domain and www hostname, including `the approved conference domain` and `the matching www hostname`, to be attachable after the domain owner provides and verifies them without redesigning, rebuilding, or migrating the website.
 
 **Why this priority**: The domain is not available yet, but the deployment must not make its later addition expensive or disruptive.
 
-**Independent Test**: Follow the documented domain-attachment procedure in a controlled production setting and verify that the pages.dev URL remains available while `ieee-icamc.org` and `www.ieee-icamc.org` can be added as production hostnames without application source changes.
+**Independent Test**: Follow the documented domain-attachment procedure in a controlled production setting and verify that the pages.dev URL remains available while `the approved conference domain` and `the matching www hostname` can be added as production hostnames without application source changes.
 
 **Acceptance Scenarios**:
 
-1. **Given** the production site is running on pages.dev and IEEE provides the official domain, **When** the release owner completes the documented domain and DNS configuration, **Then** `ieee-icamc.org` and `www.ieee-icamc.org` can serve the same production deployment.
+1. **Given** the production site is running on pages.dev and the domain owner provides the approved domain, **When** the release owner completes the documented domain and DNS configuration, **Then** `the approved conference domain` and `the matching www hostname` can serve the same production deployment.
 2. **Given** the official domain has not been configured, **When** any workflow or deployment runs, **Then** it continues to use the Cloudflare-provided URL without failing due to a missing domain.
 
 ### Edge Cases
@@ -92,7 +92,7 @@ As a release owner, I want the future official IEEE domains, including `ieee-ica
 - **FR-011**: The workflow MUST fail closed: skipped, cancelled, timed-out, or failed required validation MUST NOT qualify a change for staging or production promotion.
 - **FR-012**: The workflow MUST provide actionable status and failure information for validation, preview, staging, and production deployment steps.
 - **FR-013**: The Cloudflare Pages setup MUST use Cloudflare-provided `pages.dev` hostnames as the initial staging and production access paths.
-- **FR-014**: The deployment setup MUST allow `ieee-icamc.org` and `www.ieee-icamc.org` to be added later as production custom domains without requiring a new application architecture, rebuild, migration, or deployment workflow.
+- **FR-014**: The deployment setup MUST allow `the approved conference domain` and `the matching www hostname` to be added later as production custom domains without requiring a new application architecture, rebuild, migration, or deployment workflow.
 - **FR-015**: The repository MUST document the one-time Cloudflare Pages project creation and GitHub connection, required Cloudflare account authorization, GitHub authorization, account-level setup, secrets and variables, branch mappings, protection rules, preview behavior, rollback and retry procedures, and later custom-domain attachment procedure.
 - **FR-016**: Cloudflare account authorization, GitHub authorization, project creation, billing or plan choices, branch protection configuration, DNS changes, and other required account-level setup MUST be explicit manual checkpoints; automation MUST report prerequisites and MUST NOT imply that these account actions were completed automatically.
 - **FR-017**: The delivery workflow MUST preserve all existing conference content, public routes, shared architecture, specifications, design tokens, accessibility expectations, and visual identity; deployment work MUST NOT add unrelated application features or recreate the website specification.
@@ -131,8 +131,8 @@ As a release owner, I want the future official IEEE domains, including `ieee-ica
 - The existing static build output and current repository release gate remain the source of truth for deployable website artifacts.
 - `dev` and `main` will be created or already exist with `main` representing production and `dev` representing staging.
 - Pull request previews may use Cloudflare-generated preview URLs and do not need a permanent custom domain.
-- The production pages.dev URL is the supported public URL until the official IEEE domain is available and verified.
-- The future production hostnames are `ieee-icamc.org` and `www.ieee-icamc.org`; IEEE will provide the domain and any required DNS access later.
+- The production pages.dev URL is the supported public URL until a conference domain is approved and verified.
+- The future production hostnames will be chosen and approved before DNS configuration; the approved domain and DNS access will be provided later.
 - Environment-specific values are limited to deployment configuration and approved secrets; conference facts remain in the existing content source.
 - Standard protected-branch rules, required reviews, least-privilege tokens, and secret rotation are acceptable defaults unless organizational policy requires stricter controls.
 - Deployment service outages are operational incidents and are not treated as application feature failures, but failed or incomplete deployments must remain visible.
@@ -142,6 +142,6 @@ As a release owner, I want the future official IEEE domains, including `ieee-ica
 
 - Changes to conference content, dates, routes, visual design, information architecture, or the existing Astro application behavior.
 - Registration, submissions, authentication, analytics, email, database, or other application features unrelated to delivery and environment configuration.
-- Creation of the official IEEE domain, registrar purchase, DNS ownership, or final domain verification; this feature only preserves a clear attachment path.
-- Purchasing, registering, or claiming `ieee-icamc.org` or `www.ieee-icamc.org`, and representing any IEEE approval or sponsorship status.
+- Creation of an official conference domain, registrar purchase, DNS ownership, or final domain verification; this feature only preserves a clear attachment path.
+- Purchasing, registering, or claiming a conference domain, and representing any IEEE approval or sponsorship status.
 - A second website, a KINTECH route, or a redesign of the existing Cloudflare/Wrangler deployment target beyond what is required for Cloudflare Pages delivery.

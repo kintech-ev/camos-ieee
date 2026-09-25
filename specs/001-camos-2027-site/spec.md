@@ -1,11 +1,11 @@
-# Feature Specification: ICAMC 2027 Conference Website
+# Feature Specification: CAMoS 2027 Conference Website
 
-**Feature branch:** `001-icamc-2027-site`
+**Feature branch:** `001-camos-2027-site`
 **Status:** Ready for implementation
 **Primary visual reference:** https://noms2027.ieee-noms.org/
 
 ## Goal
-Deliver the official ICAMC 2027 public website as a real Astro site with an IEEE/NOMS-inspired conference information architecture while preserving the ICAMC identity and the confirmed conference facts.
+Deliver the official CAMoS 2027 public website as a real Astro site with an IEEE/NOMS-inspired conference information architecture while preserving the CAMoS identity and the confirmed conference facts.
 
 ## Public routes
 
@@ -20,13 +20,13 @@ Internal-only reference:
 
 ## Confirmed conference facts
 
-- Name: International Conference on Automation, Mobility and Connectivity (ICAMC)
+- Name: International Conference on Connectivity, Automation and Mobile Systems (CAMoS)
 - Edition: 2027
 - Dates: 2–6 August 2027
 - Location: Split, Croatia
 - Format: hybrid participation planned
 - Organizer/promoter: KINTECH
-- Scientific areas: Automation, Mobility, Connectivity
+- Scientific areas: Automation, Mobile Systems, Connectivity
 - Review model: rolling review/notification planned
 - Best Paper Awards: planned
 - Registration planning: Super Early Bird, Early Bird, Regular
@@ -35,7 +35,7 @@ Internal-only reference:
 ## User scenarios
 
 ### Visitor discovering the conference
-A visitor arriving at the homepage can understand in under one screen what ICAMC is, when and where it happens, and the three scientific themes.
+A visitor arriving at the homepage can understand in under one screen what CAMoS is, when and where it happens, and the three scientific themes.
 
 ### Researcher considering submission
 A researcher can find the technical scope, planned submission categories, rolling-review model, publication status, and clearly see which details are still to be announced.
@@ -48,7 +48,7 @@ An organizer can find scientific leadership, operational roles, and whether each
 
 ## UX requirements
 
-- Use a dark institutional utility bar, white ICAMC masthead, strong blue navigation bar, large photographic hero, content + sidebar pattern, compact lists and tables, and dark institutional footer.
+- Use a dark institutional utility bar, white CAMoS masthead, strong blue navigation bar, large photographic hero, content + sidebar pattern, compact lists and tables, and dark institutional footer.
 - Avoid dashboard visuals, glassmorphism, excessive rounded cards, multiple gradients, and decorative UI with no information function.
 - Keep main navigation one level deep.
 - The homepage must contain substantial conference information and quick links rather than functioning only as a marketing splash page.
@@ -61,13 +61,13 @@ An organizer can find scientific leadership, operational roles, and whether each
 - Do not reuse superseded conference dates from the older CFP.
 - Do not claim confirmed IEEE sponsorship or guaranteed IEEE Xplore inclusion.
 - Do not invent registration values or final submission deadlines.
-- KINTECH Journal may be mentioned only as a separate publication initiative when relevant; it is not an ICAMC site section or route.
+- KINTECH Journal may be mentioned only as a separate publication initiative when relevant; it is not an CAMoS site section or route.
 - A `/kintech` redirect exists and points to https://www.kintech-ev.de/.
 
 ## Acceptance criteria
 
 1. All four public routes render with a shared header/footer and coherent NOMS-inspired conference hierarchy.
-2. The three scientific themes use stable semantic accents: Automation green, Mobility orange, Connectivity blue.
+2. The three scientific themes use stable semantic accents: Automation green, Mobile Systems orange, Connectivity blue.
 3. Conference facts come from `src/content.ts` rather than being repeated across page source.
 4. `/design-system` visibly documents and renders foundations, layout, components, states, responsive behavior and accessibility rules.
 5. `npm run check` passes after dependencies are installed.

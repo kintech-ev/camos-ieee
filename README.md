@@ -1,6 +1,6 @@
-# ICAMC 2027 Website
+# CAMoS 2027 Website
 
-Astro website for the International Conference on Automation, Mobility and Connectivity — 2–6 August 2027, Split, Croatia.
+Astro website for the International Conference on Connectivity, Automation and Mobile Systems — 2–6 August 2027, Split, Croatia.
 
 ## Start Here
 
@@ -28,7 +28,7 @@ Astro website for the International Conference on Automation, Mobility and Conne
 | Shared UI | `src/components/` |
 | Design tokens and CSS | `src/styles.css` |
 | Web artwork | `public/assets/` |
-| Spec Kit files | `specs/001-icamc-2027-site/` |
+| Spec Kit files | `specs/001-camos-2027-site/` |
 | Agent entry point | `AGENTS.md` |
 | Harness | `HARNESS.md` |
 | Model routing | `model-routing.yaml` |
@@ -37,7 +37,7 @@ Astro website for the International Conference on Automation, Mobility and Conne
 
 Primary requested reference: `https://noms2027.ieee-noms.org/`.
 
-The implementation uses a restrained IEEE/NOMS-style conference information architecture while keeping original ICAMC identity, content and artwork. It does not copy NOMS/IEEE event content or claim IEEE sponsorship.
+The implementation uses a restrained IEEE/NOMS-style conference information architecture while keeping CAMoS identity, content and site artwork. It does not copy NOMS/IEEE event content or claim IEEE sponsorship.
 
 ## Cloudflare deployment
 

@@ -7,7 +7,7 @@ All editable conference facts live in `src/content.ts`.
 - `conference`: title, dates, location, format, organizer, summary
 - `navigation`: primary public navigation
 - `importantUpdates`: dated/undated conference notices
-- `themes`: Automation, Mobility, Connectivity descriptions and scientific leads
+- `themes`: Automation, Mobile Systems, Connectivity descriptions and scientific leads
 - `scopeGroups`: technical CFP topics
 - `submissionCategories`: planned contribution types
 - `scientificLeadership`: General Chairs and Co-Chairs with status

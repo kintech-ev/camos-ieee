@@ -1,7 +1,7 @@
 # Release Checklist
 
 - [ ] Header/navigation are identical across public routes
-- [ ] No obsolete ICAMC date remains
+- [ ] No obsolete CAMoS date remains
 - [ ] No unapproved registration fee is displayed
 - [ ] No claim of guaranteed IEEE Xplore publication is present
 - [ ] `/kintech` redirects to https://www.kintech-ev.de/
