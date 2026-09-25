@@ -42,8 +42,8 @@ export const importantUpdates = [
   },
   {
     date: 'Available',
-    title: 'Paper submission and registration',
-    body: 'The EasyChair CFP link is available. Final submission dates, registration rates and venue details will be published after the respective approvals and cost planning are completed.',
+    title: 'Paper submission CFP available',
+    body: 'The EasyChair CFP link is available. Conference registration remains separate; final dates, rates and venue details are still to be announced.',
   },
 ];
 

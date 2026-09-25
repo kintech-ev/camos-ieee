@@ -42,8 +42,9 @@ const { active = '' } = Astro.props;
             <a class:list={[active === item.href && 'is-active']} href={item.href}>{item.label}</a>
           </li>
         ))}
+        <li class="nav-submit-mobile"><a href={conference.submissionUrl}>Submit a Paper (EasyChair)</a></li>
       </ul>
-      <a class="nav-cta" href="/call-for-papers">For Authors</a>
+      <a class="nav-cta" href={conference.submissionUrl}>Submit a Paper (EasyChair)</a>
     </div>
   </nav>
 </header>
