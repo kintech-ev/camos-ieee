@@ -2,7 +2,7 @@
 import BaseLayout from '../components/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import SidebarPanel from '../components/SidebarPanel.astro';
-import { scientificLeadership, operationalRoles } from '../content';
+import { scientificLeadership, operationalRoles, themes } from '../content';
 ---
 <BaseLayout title="Organization" active="/organization">
   <PageHero
@@ -71,9 +71,7 @@ import { scientificLeadership, operationalRoles } from '../content';
         </SidebarPanel>
         <SidebarPanel title="Scientific Areas" tone="blue">
           <ul>
-            <li><a href="/#automation">Automation</a></li>
-            <li><a href="/#mobility">Mobility</a></li>
-            <li><a href="/#connectivity">Connectivity</a></li>
+            {themes.map((theme) => <li><a href={`/#${theme.slug}`}>{theme.label}</a></li>)}
           </ul>
         </SidebarPanel>
       </div>

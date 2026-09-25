@@ -85,6 +85,18 @@ export const themes = [
 
 export const scopeGroups = [
   {
+    title: 'Connectivity, Communications and Networks',
+    items: [
+      '5G/6G, beyond-5G, future Internet and ubiquitous connectivity',
+      'V2X, C-V2X and cooperative communications',
+      'IoT/IIoT, sensor networks, LPWAN and satellite connectivity',
+      'Edge, fog and cloud computing; distributed intelligence',
+      'Software-defined networking, network slicing and Open RAN',
+      'QoS/QoE, reliability, spectrum and network management',
+      'Cybersecurity, privacy, trust, identity and secure protocols',
+    ],
+  },
+  {
     title: 'Automation, Control and Robotics',
     items: [
       'Control theory, estimation, optimization and decision systems',
@@ -106,18 +118,6 @@ export const scopeGroups = [
       'Perception, localization, mapping, planning and decision-making',
       'Vehicle dynamics, control, testing, simulation and digital twins',
       'Virtual mobility, telepresence and navigation in immersive environments',
-    ],
-  },
-  {
-    title: 'Connectivity, Communications and Networks',
-    items: [
-      '5G/6G, beyond-5G, future Internet and ubiquitous connectivity',
-      'V2X, C-V2X and cooperative communications',
-      'IoT/IIoT, sensor networks, LPWAN and satellite connectivity',
-      'Edge, fog and cloud computing; distributed intelligence',
-      'Software-defined networking, network slicing and Open RAN',
-      'QoS/QoE, reliability, spectrum and network management',
-      'Cybersecurity, privacy, trust, identity and secure protocols',
     ],
   },
   {

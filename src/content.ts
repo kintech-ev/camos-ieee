@@ -12,16 +12,6 @@ export {
 
 export const scientificLeadership = [
   {
-    area: 'Automation',
-    role: 'General Chair of Automation',
-    name: 'Prof. Dr. Edison Pignaton de Freitas',
-  },
-  {
-    area: 'Mobile Systems',
-    role: 'General Chair of Mobile Systems',
-    name: 'Dr.-Ing. habil. (Interim Prof.) Tai Fei',
-  },
-  {
     area: 'Connectivity',
     role: 'General Chair of Connectivity',
     name: 'Prof. Dr.-Ing. João Paulo Javidi da Costa',
@@ -35,6 +25,16 @@ export const scientificLeadership = [
     area: 'Connectivity',
     role: 'General Co-Chair of Connectivity',
     name: 'Prof. Dr. Daniel Alves da Silva',
+  },
+  {
+    area: 'Automation',
+    role: 'General Chair of Automation',
+    name: 'Prof. Dr. Edison Pignaton de Freitas',
+  },
+  {
+    area: 'Mobile Systems',
+    role: 'General Chair of Mobile Systems',
+    name: 'Dr.-Ing. habil. (Interim Prof.) Tai Fei',
   },
 ];
 
