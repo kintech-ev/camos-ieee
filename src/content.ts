@@ -17,16 +17,6 @@ export const scientificLeadership = [
     name: 'Prof. Dr.-Ing. João Paulo Javidi da Costa',
   },
   {
-    area: 'Connectivity',
-    role: 'General Co-Chair of Connectivity',
-    name: 'Prof. Dr. Marouan Mizmizi',
-  },
-  {
-    area: 'Connectivity',
-    role: 'General Co-Chair of Connectivity',
-    name: 'Prof. Dr. Daniel Alves da Silva',
-  },
-  {
     area: 'Automation',
     role: 'General Chair of Automation',
     name: 'Prof. Dr. Edison Pignaton de Freitas',
