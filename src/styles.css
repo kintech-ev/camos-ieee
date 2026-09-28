@@ -221,7 +221,7 @@ p:last-child { margin-bottom: 0; }
 .theme-card.mobile-systems { border-top-color: var(--orange-600); }
 .theme-card.connectivity { border-top-color: var(--ieee-blue); }
 .theme-card .theme-number { font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-500); }
-.theme-card h3 { font-size: 1.48rem; margin: .45rem 0 .65rem; }
+.theme-card h3 { font-size: 1.48rem; margin: .45rem 0 .65rem; color: var(--navy-900); }
 .theme-card p { color: var(--ink-700); }
 .theme-card .theme-chair { margin-top: auto; padding-top: .85rem; border-top: 1px solid var(--line); font-size: .88rem; }
 .theme-chair strong { display: block; color: var(--navy-900); }
@@ -291,11 +291,11 @@ p:last-child { margin-bottom: 0; }
 .badge-open { background: #eef1f4; color: var(--ink-700); }
 
 .registration-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-.registration-card { display: flex; flex-direction: column; border: 1px solid var(--line); background: #fff; }
+.registration-card { border: 1px solid var(--line); background: #fff; min-height: 220px; }
 .registration-card h3 { background: var(--navy-900); color: #fff; padding: .9rem 1rem; margin: 0; }
-.registration-card-body { padding: 1rem; flex: 1; }
+.registration-card-body { padding: 1rem; }
 .registration-price { display: block; color: var(--ieee-blue); font-size: 1.1rem; font-weight: 800; margin-bottom: .45rem; }
-.registration-card p { color: var(--ink-700); font-size: .93rem; margin-top: auto; }
+.registration-card p { color: var(--ink-700); font-size: .93rem; }
 
 .site-footer { background: var(--navy-950); color: #dbe8f0; }
 .footer-accent { display: grid; grid-template-columns: 1fr 1fr 1fr; height: 5px; }
