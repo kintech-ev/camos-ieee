@@ -30,7 +30,7 @@ mark task complete
 - no stale dates or KINTECH route introduced
 
 ### UI change
-- compare with `/design-system`
+- compare with `/design-system` (local dev only; excluded from the production build)
 - test desktop and mobile behavior
 - check keyboard focus, heading order, overflow and text wrapping
 

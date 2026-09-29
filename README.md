@@ -7,7 +7,7 @@ Astro website for the International Conference on Connectivity, Automation and M
 1. Install: `npm install`
 2. Run: `npm run dev`
 3. Edit conference facts: `src/content.ts`
-4. Review the live visual system: `/design-system`
+4. Review the live visual system locally: `/design-system` (dev only — excluded from the production build)
 5. Validate everything: `npm run check`
 
 ## Public pages
@@ -17,7 +17,7 @@ Astro website for the International Conference on Connectivity, Automation and M
 - `/organization`
 - `/venue-registration`
 
-`/design-system` is an internal `noindex` implementation reference and is intentionally absent from public navigation.
+`/design-system` is an internal implementation reference. It renders under `npm run dev` and is removed from the production build output by `astro.config.mjs`, so it is not reachable on the published site and is absent from public navigation.
 
 ## Where is everything?
 

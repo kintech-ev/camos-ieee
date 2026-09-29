@@ -18,7 +18,7 @@ import {
     <div class="container announcement-inner">
       <span class="announcement-label">Planning update</span>
       <strong>{conference.dates} · {conference.city}, {conference.country} · {conference.format}</strong>
-      <a class="announcement-link" href="/venue-registration">Venue & registration status →</a>
+      <a class="announcement-link" href="/venue-registration">Venue & registration status <span aria-hidden="true">→</span></a>
     </div>
   </section>
 
@@ -43,7 +43,7 @@ import {
           </p>
         </div>
 
-        <div class="fact-strip" aria-label="Conference facts">
+        <div class="fact-strip" role="group" aria-label="Conference facts">
           <div class="fact"><strong>{conference.dates}</strong><span>Conference dates</span></div>
           <div class="fact"><strong>{conference.city}</strong><span>Croatia</span></div>
           <div class="fact"><strong>Hybrid</strong><span>On-site and online participation planned</span></div>
@@ -65,7 +65,7 @@ import {
         </SidebarPanel>
         <SidebarPanel title="Quick Links" tone="blue">
           <ul>
-            {quickLinks.map((item) => <li><a href={item.href}>{item.label} →</a></li>)}
+            {quickLinks.map((item) => <li><a href={item.href}>{item.label} <span aria-hidden="true">→</span></a></li>)}
           </ul>
         </SidebarPanel>
       </div>
@@ -154,7 +154,14 @@ import {
   <section class="section section-blue">
     <div class="container split-feature">
       <div class="split-feature-media">
-        <img src="/assets/split-hero.webp" alt="Split, Croatia coastal view" />
+        <img
+          src="/assets/split-hero.webp"
+          alt="Split, Croatia coastal view"
+          width="1672"
+          height="941"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
       <div class="split-feature-copy">
         <p class="eyebrow">Split, Croatia</p>

@@ -18,6 +18,11 @@ const {
 } = Astro.props;
 
 const fullTitle = title === 'CAMoS 2027' ? title : `${title} | CAMoS 2027`;
+
+// `Astro.site` comes from `site` in astro.config.mjs (PUBLIC_SITE_URL, else the
+// production domain). Both are derived from it so no URL is hardcoded twice.
+const canonical = Astro.site && !noindex ? new URL(Astro.url.pathname, Astro.site) : undefined;
+const ogImage = Astro.site ? new URL('/assets/split-hero.webp', Astro.site) : undefined;
 ---
 <!doctype html>
 <html lang="en">
@@ -27,16 +32,27 @@ const fullTitle = title === 'CAMoS 2027' ? title : `${title} | CAMoS 2027`;
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex,nofollow" />}
     <link rel="icon" type="image/png" href="/assets/favicon.png" />
-    <meta name="theme-color" content="#003b5c" />
+    <meta name="theme-color" content="#071b2f" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    {canonical && <link rel="canonical" href={canonical} />}
+    {canonical && <meta property="og:url" content={canonical} />}
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    {ogImage && (
+      <meta
+        property="og:image:alt"
+        content="Coastal cityscape representing Split, Croatia, host city of CAMoS 2027"
+      />
+    )}
     <title>{fullTitle}</title>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <SiteHeader active={active} />
-    <main id="main-content"><slot /></main>
+    {/* tabindex="-1" makes the skip-link move focus reliably in every browser;
+        it stays out of the normal tab order. */}
+    <main id="main-content" tabindex="-1"><slot /></main>
     <SiteFooter />
   </body>
 </html>

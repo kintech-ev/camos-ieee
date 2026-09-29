@@ -12,13 +12,26 @@
   --orange-100: #fff2e7;
   --ink-900: #172637;
   --ink-700: #405466;
-  --ink-500: #6c7d8d;
+  /* #596774 keeps AA (4.5:1) on both white and --surface-soft. */
+  --ink-500: #596774;
   --line: #d7e0e7;
   --surface: #ffffff;
   --surface-soft: #f5f8fa;
   --surface-blue: #f1f7fb;
   --warning: #b24e00;
   --success: #18794e;
+  /* Focus ring tokens: measured >= 3:1 against every adjacent surface. */
+  --focus: #00629b;
+  --focus-on-dark: #bde7f7;
+  /* Link color for the navy utility bar. #8FD0F2 = 10.33:1 on --navy-950.
+     The inherited --ieee-blue would only reach 2.67:1 there. */
+  --link-on-dark: #8fd0f2;
+  /* Legibility floor. No rendered text may sit below --text-xs (13px); secondary,
+     administrative and uppercase micro-label text uses these two steps, while body
+     copy stays at the 16px base. Several labels previously rendered at 10.9–12.8px,
+     which is too small to read comfortably on a conference site. */
+  --text-xs: 0.8125rem;
+  --text-sm: 0.875rem;
   --radius-xs: 2px;
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -64,6 +77,21 @@ p:last-child { margin-bottom: 0; }
 .muted { color: var(--ink-500); }
 .small { font-size: 0.9rem; }
 
+/* Available to assistive technology only. Never use display:none or
+   visibility:hidden for this: those remove the content from the accessibility
+   tree entirely. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
 .skip-link {
   position: fixed;
   top: 0.75rem;
@@ -76,13 +104,48 @@ p:last-child { margin-bottom: 0; }
   border: 2px solid var(--ieee-blue);
 }
 .skip-link:focus { transform: translateY(0); }
+/* The link sits outside .utility-bar in the DOM, so it would inherit the dark
+   ring token meant for light surfaces. Its outline is drawn over the navy bar,
+   where --focus is only 2.67:1; --focus-on-dark is 13.21:1 there. */
+.skip-link:focus-visible { outline-color: var(--focus-on-dark); }
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+/* On dark surfaces the blue ring is not distinguishable, so a light ring is used.
+   The ring is drawn outside the element (outline-offset), so what matters is the
+   surface the control sits ON, not the control's own background. These selectors
+   therefore match containers only: a .button-primary inside .notice.warning sits
+   on a light surface and must keep the dark ring. */
+.utility-bar :focus-visible,
+.main-nav :focus-visible,
+.home-hero :focus-visible,
+.page-hero :focus-visible,
+.section-navy :focus-visible,
+.site-footer :focus-visible,
+.ds-hero :focus-visible {
+  outline-color: var(--focus-on-dark);
+}
 
 .utility-bar {
   background: var(--navy-950);
   color: #d9e9f4;
   min-height: 38px;
-  font-size: 0.8rem;
+  font-size: var(--text-xs);
 }
+/* The global `a` color fails on navy (2.67:1), and the global `a:hover` navy
+   color is nearly invisible here (1.24:1). Both are overridden for this bar.
+   The link is underlined so it is not identified by color alone (WCAG 1.4.1),
+   and inline-block + padding gives it a real tap target (WCAG 2.5.8). */
+.utility-bar a {
+  display: inline-block;
+  padding-block: 0.35rem;
+  color: var(--link-on-dark);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+.utility-bar a:hover { color: #ffffff; }
 .utility-inner {
   min-height: 38px;
   display: flex;
@@ -114,7 +177,7 @@ p:last-child { margin-bottom: 0; }
 .brand-mark img { display: block; width: 100%; height: auto; }
 .masthead-event { display: grid; text-align: right; line-height: 1.25; color: var(--ink-700); }
 .masthead-event strong { color: var(--navy-900); font-size: 1.15rem; margin: 0.2rem 0; }
-.masthead-kicker { color: var(--ieee-blue); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.72rem; font-weight: 700; }
+.masthead-kicker { color: var(--ieee-blue); text-transform: uppercase; letter-spacing: .1em; font-size: var(--text-xs); font-weight: 700; }
 
 .main-nav { background: var(--ieee-blue); box-shadow: 0 2px 7px rgba(7,27,47,0.13); position: relative; z-index: 20; }
 .nav-inner { min-height: 54px; display: flex; align-items: stretch; justify-content: space-between; }
@@ -142,13 +205,25 @@ p:last-child { margin-bottom: 0; }
 .home-hero-content { position: relative; z-index: 2; padding-block: 4.7rem 4rem; color: #fff; }
 .home-hero h1 { color: #fff; max-width: 850px; margin-bottom: 1rem; text-shadow: 0 2px 20px rgba(0,0,0,.18); }
 .home-hero-lead { max-width: 650px; font-size: 1.22rem; color: #eef7fb; margin-bottom: 1.5rem; }
-.eyebrow { text-transform: uppercase; letter-spacing: .18em; font-size: .78rem; font-weight: 800; color: var(--ieee-blue); margin-bottom: .75rem; }
+.eyebrow { text-transform: uppercase; letter-spacing: .18em; font-size: var(--text-xs); font-weight: 800; color: var(--ieee-blue); margin-bottom: .75rem; }
 .eyebrow.light { color: #bde7f7; }
 .hero-meta { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; font-weight: 700; font-size: .94rem; color: #fff; margin-bottom: 1.7rem; }
-.hero-meta span + span::before { content: '•'; margin-right: 1.4rem; color: #71d5e7; }
+/* The separator is drawn as a dot rather than emitted as `content: '•'`:
+   generated text content is exposed to assistive technology and would be
+   announced between every meta item. Empty content announces nothing. */
+.hero-meta span + span::before {
+  content: "";
+  display: inline-block;
+  width: .32rem;
+  height: .32rem;
+  border-radius: 50%;
+  background: #71d5e7;
+  margin-right: 1.4rem;
+  vertical-align: middle;
+}
 .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
 
-.button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: .68rem 1rem; border-radius: var(--radius-xs); border: 2px solid transparent; font-weight: 800; text-decoration: none; line-height: 1.1; transition: .16s ease; }
+.button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: .68rem 1rem; border-radius: var(--radius-xs); border: 2px solid transparent; font-weight: 800; text-decoration: none; line-height: 1.1; transition: background-color .16s ease, border-color .16s ease, color .16s ease; }
 .button-primary { background: var(--ieee-blue); color: #fff; border-color: var(--ieee-blue); }
 .button-primary:hover { background: var(--navy-900); border-color: var(--navy-900); color: #fff; }
 .button-secondary { background: var(--navy-900); color: #fff; border-color: var(--navy-900); }
@@ -159,7 +234,9 @@ p:last-child { margin-bottom: 0; }
 
 .announcement { background: #fff; border-bottom: 1px solid var(--line); }
 .announcement-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem; padding-block: 1rem; }
-.announcement-label { background: var(--orange-600); color: #fff; padding: .28rem .55rem; text-transform: uppercase; letter-spacing: .1em; font-size: .68rem; font-weight: 800; }
+/* White uppercase text at this size needs AA, so the darker orange is used here.
+   --orange-600 (#D86A1F) stays the Mobile Systems accent for non-text elements. */
+.announcement-label { background: var(--warning); color: #fff; padding: .28rem .55rem; text-transform: uppercase; letter-spacing: .08em; font-size: var(--text-xs); font-weight: 800; }
 .announcement strong { color: var(--navy-900); }
 .announcement-link { white-space: nowrap; font-weight: 700; }
 
@@ -174,6 +251,10 @@ p:last-child { margin-bottom: 0; }
 .section-heading p { color: var(--ink-700); margin: 0; }
 
 .content-with-sidebar { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 3.25rem; align-items: start; }
+/* Grid items default to min-width:auto, so a wide table inside forces the whole
+   track to overflow the viewport at 320px. min-width:0 lets the track shrink and
+   hands the overflow to the scroll wrapper instead. */
+.content-with-sidebar > * { min-width: 0; }
 .content-column > * + * { margin-top: 2.6rem; }
 .content-block { max-width: var(--readable); }
 .content-block h2 { margin-bottom: .8rem; }
@@ -191,7 +272,18 @@ p:last-child { margin-bottom: 0; }
 .sidebar-panel-body ul { list-style: none; margin: 0; padding: 0; }
 .sidebar-panel-body li { padding: .58rem 0; border-bottom: 1px solid var(--line); }
 .sidebar-panel-body li:last-child { border-bottom: 0; }
-.sidebar-panel-body a { font-weight: 700; text-decoration: none; }
+/* Underlined: these links sit next to non-link text of the same weight, and the
+   link color alone is only 1.20:1 away from it (WCAG 1.4.1). The block display
+   plus an equal negative margin grows the tap target past 24px (WCAG 2.5.8)
+   without changing the visual row rhythm. */
+.sidebar-panel-body a {
+  display: block;
+  padding-block: .58rem;
+  margin-block: -.58rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
 .placeholder-link {
   display: block;
   color: var(--ink-500);
@@ -212,16 +304,16 @@ p:last-child { margin-bottom: 0; }
 .update-list { list-style: none; margin: 0; padding: 0; }
 .update-list li { display: grid; gap: .18rem; padding: .75rem 0; border-bottom: 1px solid var(--line); }
 .update-list li:last-child { border-bottom: 0; }
-.update-date { color: var(--ieee-blue); font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
+.update-date { color: var(--ieee-blue); font-size: var(--text-xs); font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
 .update-list strong { color: var(--navy-900); }
 
 .theme-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-.theme-card { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-top: 5px solid var(--ieee-blue); padding: 1.45rem; min-height: 100%; box-shadow: var(--shadow-sm); }
+.theme-card { display: flex; flex-direction: column; background: #fff; color: var(--ink-700); border: 1px solid var(--line); border-top: 5px solid var(--ieee-blue); padding: 1.45rem; min-height: 100%; box-shadow: var(--shadow-sm); }
 .theme-card.automation { border-top-color: var(--green-600); }
 .theme-card.mobile-systems { border-top-color: var(--orange-600); }
 .theme-card.connectivity { border-top-color: var(--ieee-blue); }
-.theme-card .theme-number { font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-500); }
-.theme-card h3 { font-size: 1.48rem; margin: .45rem 0 .65rem; color: var(--navy-900); }
+.theme-card .theme-number { font-size: var(--text-xs); font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-500); }
+.section-navy .theme-card h3, .theme-card h3 { font-size: 1.48rem; margin: .45rem 0 .65rem; color: var(--navy-900); }
 .theme-card p { color: var(--ink-700); }
 .theme-card .theme-chair { margin-top: auto; padding-top: .85rem; border-top: 1px solid var(--line); font-size: .88rem; }
 .theme-chair strong { display: block; color: var(--navy-900); }
@@ -235,7 +327,7 @@ p:last-child { margin-bottom: 0; }
 .leadership-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 .person-card { border-top: 4px solid var(--ieee-blue); background: #fff; padding: 1.2rem 1.25rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); border-left: 1px solid var(--line); }
 .person-card h3 { margin-bottom: .35rem; }
-.person-card .role { color: var(--ieee-blue); font-weight: 800; font-size: .82rem; text-transform: uppercase; letter-spacing: .05em; }
+.person-card .role { color: var(--ieee-blue); font-weight: 800; font-size: var(--text-sm); text-transform: uppercase; letter-spacing: .04em; }
 .person-card .status { display: inline-block; margin-top: .75rem; }
 
 .fact-strip { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); background: #fff; }
@@ -252,8 +344,18 @@ p:last-child { margin-bottom: 0; }
 .page-hero p:last-child { max-width: 760px; font-size: 1.08rem; color: #eaf4fa; margin: 0; }
 
 .breadcrumbs { background: var(--surface-soft); border-bottom: 1px solid var(--line); }
-.breadcrumbs .container { padding-block: .7rem; font-size: .82rem; color: var(--ink-500); }
-.breadcrumbs a { text-decoration: none; font-weight: 700; }
+.breadcrumbs .container { padding-block: .7rem; font-size: var(--text-sm); color: var(--ink-500); }
+/* Underlined: the trail mixes a link with plain text, and the link color is only
+   1.12:1 from --ink-500, so color alone cannot identify it (WCAG 1.4.1). The
+   padding/negative-margin pair keeps the 24px tap target (WCAG 2.5.8). */
+.breadcrumbs a {
+  display: inline-block;
+  padding-block: .35rem;
+  margin-block: -.35rem;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  font-weight: 700;
+}
 
 .notice { border-left: 5px solid var(--ieee-blue); background: var(--blue-100); padding: 1rem 1.1rem; }
 .notice.warning { border-left-color: var(--orange-600); background: var(--orange-100); }
@@ -278,20 +380,40 @@ p:last-child { margin-bottom: 0; }
 .info-table tr:last-child th, .info-table tr:last-child td { border-bottom: 0; }
 
 .organization-section + .organization-section { margin-top: 3rem; }
-.organization-table { width: 100%; border-collapse: collapse; border-top: 3px solid var(--navy-900); }
+/* Horizontal scroll lives on a wrapper, never on the table itself: turning the
+   table into a block destroys its row/column semantics for assistive technology.
+   The wrapper is focusable so keyboard users can scroll it (WCAG 2.1.1), and
+   min-width:0 lets the grid column shrink instead of overflowing the viewport. */
+.table-scroll {
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.table-scroll:focus-visible { outline-offset: -3px; }
+/* min-width keeps the columns readable at 320px: without it the Name column is
+   squeezed to ~82px and long academic titles wrap to six lines. The overflow is
+   absorbed by the focusable, labelled .table-scroll region, so nothing is lost to
+   keyboard or screen-reader users. Irrelevant on desktop, where the column is far
+   wider than 340px. */
+.organization-table { width: 100%; min-width: 340px; border-collapse: collapse; border-top: 3px solid var(--navy-900); }
 .organization-table th, .organization-table td { border-bottom: 1px solid var(--line); padding: .9rem .8rem; text-align: left; vertical-align: top; }
-.organization-table th { background: var(--surface-soft); color: var(--navy-900); font-size: .85rem; text-transform: uppercase; letter-spacing: .04em; }
+/* Column headers keep the uppercase administrative treatment. */
+.organization-table thead th { background: var(--surface-soft); color: var(--navy-900); font-size: var(--text-sm); text-transform: uppercase; letter-spacing: .04em; }
+/* Row headers are data labels, so they stay body-sized and sentence case. */
+.organization-table tbody th { font-weight: 700; color: var(--navy-900); }
 .organization-table td { color: var(--ink-700); white-space: pre-line; }
 .organization-table td strong { color: var(--navy-900); }
 
-.badge { display: inline-flex; align-items: center; min-height: 25px; padding: .15rem .48rem; border-radius: 999px; font-size: .72rem; font-weight: 800; white-space: nowrap; }
+/* Badges carry status meaning ("Confirmed", "Subject to confirmation"), so they
+   must stay legible: 13px rather than the previous 11.5px. */
+.badge { display: inline-flex; align-items: center; min-height: 25px; padding: .15rem .48rem; border-radius: 999px; font-size: var(--text-xs); font-weight: 800; white-space: nowrap; }
 .badge-confirmed { background: var(--green-100); color: var(--success); }
 .badge-planned { background: var(--blue-100); color: var(--ieee-blue); }
 .badge-pending { background: var(--orange-100); color: var(--warning); }
 .badge-open { background: #eef1f4; color: var(--ink-700); }
 
 .registration-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-.registration-card { border: 1px solid var(--line); background: #fff; min-height: 220px; }
+.registration-card { border: 1px solid var(--line); background: #fff; color: var(--ink-700); min-height: 220px; }
 .registration-card h3 { background: var(--navy-900); color: #fff; padding: .9rem 1rem; margin: 0; }
 .registration-card-body { padding: 1rem; }
 .registration-price { display: block; color: var(--ieee-blue); font-size: 1.1rem; font-weight: 800; margin-bottom: .45rem; }
@@ -309,11 +431,36 @@ p:last-child { margin-bottom: 0; }
 .footer-brand span { font-size: .88rem; color: #b9cbd8; }
 .footer-title { color: #fff; font-size: .9rem; text-transform: uppercase; letter-spacing: .08em; margin-bottom: .75rem; }
 .footer-links { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; }
-.footer-links a { color: #dbe8f0; text-decoration: none; font-size: .9rem; }
-.footer-links a:hover { color: #fff; text-decoration: underline; }
+/* Underlined: the Status column mixes links with plain text only 1.33:1 apart, so
+   color alone cannot identify the links (WCAG 1.4.1). The padding plus an equal
+   negative margin grows the tap target past 24px (WCAG 2.5.8) while leaving the
+   visual rhythm untouched. */
+.footer-links a {
+  display: inline-block;
+  padding-block: .3rem;
+  margin-block: -.3rem;
+  color: #dbe8f0;
+  text-decoration: underline;
+  text-underline-offset: .18em;
+  font-size: .9rem;
+}
+.footer-links a:hover { color: #fff; }
 .footer-static li { color: #b9cbd8; font-size: .88rem; }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,.12); }
-.footer-bottom-inner { min-height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-size: .78rem; color: #91a9ba; }
+.footer-bottom-inner { min-height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-size: var(--text-xs); color: #91a9ba; }
+/* The global `a` color is only 2.67:1 on this navy surface, so the link uses the
+   dark-surface color and stays underlined (WCAG 1.4.3 + 1.4.1). The padding plus
+   an equal negative margin lifts the 14px-tall inline link to a real tap target
+   (WCAG 2.5.8) without changing the bar's visual height. */
+.footer-bottom-inner a {
+  display: inline-block;
+  padding-block: .4rem;
+  margin-block: -.4rem;
+  color: var(--link-on-dark);
+  text-decoration: underline;
+  text-underline-offset: .18em;
+}
+.footer-bottom-inner a:hover { color: #ffffff; }
 
 /* Design system */
 .ds-hero { background: var(--navy-900); color: #fff; padding-block: 3.5rem; }
@@ -321,27 +468,57 @@ p:last-child { margin-bottom: 0; }
 .ds-hero p { color: #d9e8f2; max-width: 760px; }
 .ds-index { border-bottom: 1px solid var(--line); background: #fff; position: sticky; top: 0; z-index: 40; }
 .ds-index .container { display: flex; gap: 1rem; overflow-x: auto; padding-block: .65rem; }
-.ds-index a { white-space: nowrap; text-decoration: none; font-weight: 700; font-size: .85rem; }
-.ds-section { padding-block: 3.5rem; border-bottom: 1px solid var(--line); }
+.ds-index a {
+  white-space: nowrap;
+  text-decoration: underline;
+  text-underline-offset: .18em;
+  font-weight: 700;
+  font-size: var(--text-sm);
+  padding-block: .3rem;
+  margin-block: -.3rem;
+}
+/* The sticky index bar is 44px tall, so anchor targets need that much clearance
+   or the section heading lands underneath it. */
+.ds-section { padding-block: 3.5rem; border-bottom: 1px solid var(--line); scroll-margin-top: 4rem; }
 .ds-section h2 { margin-bottom: .5rem; }
 .ds-description { color: var(--ink-700); max-width: 760px; margin-bottom: 2rem; }
 .swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: .8rem; }
 .swatch { border: 1px solid var(--line); background: #fff; }
 .swatch-color { height: 88px; }
-.swatch-meta { padding: .75rem; display: grid; gap: .1rem; font-size: .82rem; }
+.swatch-meta { padding: .75rem; display: grid; gap: .1rem; font-size: var(--text-xs); }
 .swatch-meta strong { color: var(--navy-900); }
 .type-sample { border-top: 1px solid var(--line); padding-block: 1rem; display: grid; grid-template-columns: 160px 1fr; gap: 1rem; align-items: baseline; }
-.type-token { color: var(--ink-500); font-size: .82rem; font-weight: 700; }
+.type-sample > * { min-width: 0; }
+/* Type specimens are visual samples, not document headings: the page already has
+   one h1, and a second h1/h2/h3 here would corrupt the heading outline. They are
+   rendered as paragraphs styled to match the real heading sizes. A single
+   unbreakable word sets a hard min-content floor, so they may break at very
+   narrow widths instead of overflowing the viewport. */
+.type-specimen { margin: 0; overflow-wrap: anywhere; }
+.type-specimen-h1 { font-size: clamp(2rem, 9vw, 3.5rem); line-height: 1.15; letter-spacing: -.035em; color: var(--navy-900); font-weight: 700; }
+.type-specimen-h2 { font-size: clamp(1.6rem, 7vw, 2.55rem); line-height: 1.15; letter-spacing: -.02em; color: var(--navy-900); font-weight: 700; }
+.type-specimen-h3 { font-size: 1.2rem; line-height: 1.15; color: var(--navy-900); font-weight: 700; }
+/* Samples of the two smaller steps, rendered with the real tokens so the
+   reference page shows what actually ships. */
+.small-sample { font-size: var(--text-sm); color: var(--ink-700); }
+.micro-sample { font-size: var(--text-xs); color: var(--ink-700); }
+.type-token { color: var(--ink-500); font-size: var(--text-xs); font-weight: 700; }
 .ds-component-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.ds-component-grid > * { min-width: 0; }
 .ds-demo { border: 1px solid var(--line); background: #fff; padding: 1.25rem; }
 .ds-demo h3 { font-size: .96rem; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 1rem; }
 .spacing-row { display: flex; align-items: end; gap: .75rem; flex-wrap: wrap; }
-.spacing-chip { display: grid; place-items: center; background: var(--blue-100); color: var(--navy-900); border: 1px solid #cde2ef; font-size: .72rem; font-weight: 800; }
+.spacing-chip { display: grid; place-items: center; background: var(--blue-100); color: var(--navy-900); border: 1px solid #cde2ef; font-size: var(--text-xs); font-weight: 800; }
 .layout-diagram { display: grid; grid-template-columns: 1fr 320px; gap: 1rem; padding: 1rem; background: var(--surface-soft); border: 1px solid var(--line); }
-.layout-main, .layout-side { min-height: 120px; display: grid; place-items: center; border: 1px dashed #8fa4b4; color: var(--ink-500); background: #fff; }
+/* #8fa4b4 was only 2.58:1 against white; the diagram outline is the only cue that
+   separates the two regions, so it needs the 3:1 non-text minimum (WCAG 1.4.11). */
+.layout-main, .layout-side { min-height: 120px; display: grid; place-items: center; border: 1px dashed #6c7d8d; color: var(--ink-500); background: #fff; }
 .breakpoint-table { width: 100%; border-collapse: collapse; }
-.breakpoint-table th, .breakpoint-table td { border: 1px solid var(--line); padding: .75rem; text-align: left; }
-.breakpoint-table th { background: var(--surface-soft); }
+.breakpoint-table th, .breakpoint-table td { border: 1px solid var(--line); padding: .75rem; text-align: left; vertical-align: top; }
+.breakpoint-table thead th { background: var(--surface-soft); }
+/* Row headers are range labels, not column headers: keep them visually distinct
+   but body-sized so the behavior column stays the dominant text. */
+.breakpoint-table tbody th { background: var(--surface-soft); font-weight: 700; color: var(--navy-900); white-space: nowrap; }
 
 @media (max-width: 960px) {
   .utility-inner { align-items: start; padding-block: .5rem; }
@@ -394,10 +571,14 @@ p:last-child { margin-bottom: 0; }
   .sidebar-stack { grid-template-columns: 1fr; }
   .scope-grid { grid-template-columns: 1fr; }
   .category-row { grid-template-columns: 1fr; gap: .3rem; }
-  .organization-table { display: block; overflow-x: auto; white-space: normal; }
-  .info-table th, .info-table td { display: block; width: 100%; }
-  .info-table th { border-bottom: 0; padding-bottom: .25rem; }
-  .info-table td { padding-top: .25rem; }
+  /* Tables keep their table semantics at every width. Overflow is handled by the
+     focusable .table-scroll wrapper instead of display:block on table cells.
+     Desktop cell padding leaves rows 77px tall in a 249px-wide sidebar panel, so
+     it is tightened here; this also removes the need to scroll the organization
+     tables, whose 323px min-content otherwise exceeds the 282px column. */
+  .info-table th, .info-table td { padding: .6rem .7rem; }
+  .info-table th { width: 34%; }
+  .organization-table th, .organization-table td { padding: .7rem .6rem; }
   .fact-strip { grid-template-columns: 1fr; }
   .fact { border-right: 0; border-bottom: 1px solid var(--line); }
   .fact:last-child { border-bottom: 0; }

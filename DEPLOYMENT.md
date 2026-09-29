@@ -54,7 +54,7 @@ Wrangler authentication is a manual prerequisite. Use a local Cloudflare login o
 1. Stop or revert the promotion source in GitHub so another deployment is not queued unintentionally.
 2. In Cloudflare Pages, open the project deployment history and identify the last known-good production deployment by commit SHA.
 3. Use Cloudflare Pages' rollback action to make that deployment production again, or redeploy the known-good commit through the protected release process.
-4. Verify `/`, `/call-for-papers`, `/organization`, `/venue-registration`, and `/design-system` on the production pages.dev URL.
+4. Verify `/`, `/call-for-papers`, `/organization`, and `/venue-registration` on the production pages.dev URL. `/design-system` is an internal dev-only reference and MUST return 404 in production; treat its presence as a failed deployment.
 5. For a transient failure, rerun the failed GitHub Actions job after confirming the project, account, and secret configuration. Do not create a second Pages project.
 
 A rollback must not edit conference facts or require a website rebuild. Record the incident, commit SHA, deployment URL, and recovery result in the repository's normal release record.

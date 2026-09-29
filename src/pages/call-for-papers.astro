@@ -10,7 +10,7 @@ import { conference, scopeGroups, submissionCategories, statusFacts } from '../c
     title="Call for Papers"
     description="Original research, systems, applications and emerging work across automation, mobility, connectivity and their intersections."
   />
-  <div class="breadcrumbs"><div class="container"><a href="/">Home</a> / Call for Papers</div></div>
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><a href="/">Home</a> / <span aria-current="page">Call for Papers</span></div></nav>
 
   <section class="section">
     <div class="container content-with-sidebar">
@@ -80,21 +80,22 @@ import { conference, scopeGroups, submissionCategories, statusFacts } from '../c
       <div class="sidebar-stack">
         <SidebarPanel title="At a Glance" tone="navy">
           <table class="info-table">
+            <caption class="visually-hidden">Conference at a glance</caption>
             <tbody>
-              <tr><th>Conference</th><td>{conference.dates}</td></tr>
-              <tr><th>Location</th><td>{conference.city}, {conference.country}</td></tr>
-              <tr><th>Format</th><td>{conference.format}</td></tr>
-              <tr><th>Review</th><td>Rolling review planned</td></tr>
-              <tr><th>Submission</th><td><a href={conference.submissionUrl}>{statusFacts.submissionPortal}</a></td></tr>
+              <tr><th scope="row">Conference</th><td>{conference.dates}</td></tr>
+              <tr><th scope="row">Location</th><td>{conference.city}, {conference.country}</td></tr>
+              <tr><th scope="row">Format</th><td>{conference.format}</td></tr>
+              <tr><th scope="row">Review</th><td>Rolling review planned</td></tr>
+              <tr><th scope="row">Submission</th><td><a href={conference.submissionUrl}>{statusFacts.submissionPortal}</a></td></tr>
             </tbody>
           </table>
         </SidebarPanel>
         <SidebarPanel title="Author Links" tone="blue">
           <ul>
-            <li><a href={conference.submissionUrl}>Paper submissions (EasyChair CFP) →</a></li>
+            <li><a href={conference.submissionUrl}>Paper submissions (EasyChair CFP) <span aria-hidden="true">→</span></a></li>
             <li><span class="placeholder-link">Author guidelines — coming later</span></li>
             <li><span class="placeholder-link">Paper templates — coming later</span></li>
-            <li><a href="/organization">Conference organization →</a></li>
+            <li><a href="/organization">Conference organization <span aria-hidden="true">→</span></a></li>
           </ul>
         </SidebarPanel>
         <SidebarPanel title="Publication Status" tone="plain">

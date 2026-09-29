@@ -16,7 +16,7 @@ Deliver the official CAMoS 2027 public website as a real Astro site with an IEEE
 
 Internal-only reference:
 
-- `/design-system` — canonical implemented design system; `noindex`
+- `/design-system` — canonical implemented design system; renders in local development only and is excluded from the production build artifact
 
 ## Confirmed conference facts
 
@@ -69,7 +69,7 @@ An organizer can find scientific leadership, operational roles, and whether each
 1. All four public routes render with a shared header/footer and coherent NOMS-inspired conference hierarchy.
 2. The three scientific themes use stable semantic accents: Automation green, Mobile Systems orange, Connectivity blue.
 3. Conference facts come from `src/content.ts` rather than being repeated across page source.
-4. `/design-system` visibly documents and renders foundations, layout, components, states, responsive behavior and accessibility rules.
+4. `/design-system` visibly documents and renders foundations, layout, components, states, responsive behavior and accessibility rules in local development, and is not present in the production build output.
 5. `npm run check` passes after dependencies are installed.
 6. The site can be built statically and deployed with Wrangler/Cloudflare.
 7. The `/kintech` route redirects to https://www.kintech-ev.de/.

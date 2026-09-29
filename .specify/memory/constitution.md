@@ -4,7 +4,7 @@
 2. Keep the repository shallow and predictable.
 3. `src/content.ts` is the source of truth for conference facts.
 4. `src/styles.css` is the canonical visual system.
-5. `/design-system` is the canonical rendered design reference.
+5. `/design-system` is the canonical rendered design reference; it renders in local development (`npm run dev`) and is intentionally excluded from the production build artifact.
 6. Use Astro statically by default; add client JavaScript only for real interaction.
 7. Do not invent conference information to fill layouts.
 8. Pending details must be visibly marked as pending.

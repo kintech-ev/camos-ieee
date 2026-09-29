@@ -62,10 +62,12 @@ import SidebarPanel from '../components/SidebarPanel.astro';
       <p class="eyebrow">03 · Typography</p>
       <h2>Readable system sans-serif</h2>
       <p class="ds-description">No decorative display font is required. The hierarchy should feel technical, stable and familiar on institutional conference websites.</p>
-      <div class="type-sample"><span class="type-token">Display / H1</span><h1 style="font-size:3.5rem;margin:0">Connectivity, Automation and Mobile Systems</h1></div>
-      <div class="type-sample"><span class="type-token">H2</span><h2 style="margin:0">Important dates and conference information</h2></div>
-      <div class="type-sample"><span class="type-token">H3</span><h3 style="margin:0">Submission categories</h3></div>
+      <div class="type-sample"><span class="type-token">Display / H1</span><p class="type-specimen type-specimen-h1">Connectivity, Automation and Mobile Systems</p></div>
+      <div class="type-sample"><span class="type-token">H2</span><p class="type-specimen type-specimen-h2">Important dates and conference information</p></div>
+      <div class="type-sample"><span class="type-token">H3</span><p class="type-specimen type-specimen-h3">Submission categories</p></div>
       <div class="type-sample"><span class="type-token">Body</span><p style="margin:0;max-width:68ch">Body text is 16px with generous line height. Long academic and administrative copy remains readable without needing card-based fragmentation.</p></div>
+      <div class="type-sample"><span class="type-token">Small · 14px</span><p class="small-sample" style="margin:0;max-width:68ch">Secondary and administrative text: breadcrumbs, table column headers, role labels and footer links use <code>--text-sm</code>.</p></div>
+      <div class="type-sample"><span class="type-token">Micro · 13px</span><p class="micro-sample" style="margin:0;max-width:68ch">Uppercase eyebrows, badges, dates and the institutional top bar use <code>--text-xs</code>. This is the legibility floor: nothing renders smaller.</p></div>
       <div class="type-sample"><span class="type-token">Eyebrow</span><p class="eyebrow" style="margin:0">Scientific themes</p></div>
     </div>
   </section>
@@ -108,9 +110,19 @@ import SidebarPanel from '../components/SidebarPanel.astro';
         <div class="ds-demo"><h3>Status badges</h3><div style="display:flex;gap:.6rem;flex-wrap:wrap"><span class="badge badge-confirmed">Confirmed</span><span class="badge badge-planned">Planned</span><span class="badge badge-pending">Subject to confirmation</span><span class="badge badge-open">Open</span></div></div>
         <div class="ds-demo"><h3>Information notice</h3><div class="notice"><strong>Publication pathway</strong><p>Use a bordered notice for information that must be noticed without becoming a full-width alert.</p></div></div>
         <div class="ds-demo"><h3>Deadline / warning notice</h3><div class="notice warning"><strong>Dates not final</strong><p>Orange indicates time-sensitive or provisional information, not a decorative highlight.</p></div></div>
-        <div class="ds-demo"><h3>Sidebar panel</h3><SidebarPanel title="Quick Links" tone="navy"><ul><li><a href="/call-for-papers">Call for Papers →</a></li><li><a href="/organization">Organization →</a></li><li><a href="/venue-registration">Venue →</a></li></ul></SidebarPanel></div>
-        <div class="ds-demo"><h3>Administrative table</h3><table class="organization-table"><thead><tr><th>Role</th><th>Name</th><th>Status</th></tr></thead><tbody><tr><td>Publication Chair</td><td>Example Name</td><td><span class="badge badge-confirmed">Confirmed</span></td></tr><tr><td>International Liaison</td><td>To be appointed</td><td><span class="badge badge-open">Open</span></td></tr></tbody></table></div>
+        <div class="ds-demo"><h3>Sidebar panel</h3><SidebarPanel title="Quick Links" tone="navy"><ul><li><a href="/call-for-papers">Call for Papers <span aria-hidden="true">→</span></a></li><li><a href="/organization">Organization <span aria-hidden="true">→</span></a></li><li><a href="/venue-registration">Venue <span aria-hidden="true">→</span></a></li></ul></SidebarPanel></div>
+        <div class="ds-demo"><h3 id="ds-table-demo">Administrative table</h3><div class="table-scroll" tabindex="0" role="region" aria-labelledby="ds-table-demo"><table class="organization-table"><thead><tr><th scope="col">Role</th><th scope="col">Name</th><th scope="col">Status</th></tr></thead><tbody><tr><th scope="row">Publication Chair</th><td>Example Name</td><td><span class="badge badge-confirmed">Confirmed</span></td></tr><tr><th scope="row">International Liaison</th><td>To be appointed</td><td><span class="badge badge-open">Open</span></td></tr></tbody></table></div></div>
       </div>
+      <div class="ds-demo" style="margin-top:1.25rem">
+        <h3>Registration cards</h3>
+        <div class="registration-grid">
+          <section class="registration-card"><h3>Tier name</h3><div class="registration-card-body"><span class="registration-price">Not yet confirmed</span><p>Descriptive note about what this tier includes.</p></div></section>
+          <section class="registration-card"><h3>Tier name</h3><div class="registration-card-body"><span class="registration-price">Not yet confirmed</span><p>Descriptive note about what this tier includes.</p></div></section>
+          <section class="registration-card"><h3>Tier name</h3><div class="registration-card-body"><span class="registration-price">Not yet confirmed</span><p>Descriptive note about what this tier includes.</p></div></section>
+        </div>
+        <p class="ds-description" style="margin:.9rem 0 0">Same bordered, content-first treatment as every other card. Fee amounts and statuses are never invented as visual filler.</p>
+      </div>
+
     </div>
   </section>
 
@@ -120,9 +132,9 @@ import SidebarPanel from '../components/SidebarPanel.astro';
       <h2>Color communicates subject, not decoration</h2>
       <p class="ds-description">The three core areas have stable semantic accents across the site.</p>
       <div class="theme-grid">
-        <article class="theme-card connectivity"><span class="theme-number">Connectivity</span><h3>Connectivity</h3><p>Blue is used for connectivity-specific separators, highlights and diagrams.</p></article>
-        <article class="theme-card automation"><span class="theme-number">Automation</span><h3>Automation</h3><p>Green is used for automation-specific separators, highlights and diagrams.</p></article>
-        <article class="theme-card mobile-systems"><span class="theme-number">Mobile Systems</span><h3>Mobile Systems</h3><p>Orange is used for mobile-systems-specific separators, highlights and diagrams.</p></article>
+        <article class="theme-card connectivity"><span class="theme-number">01 · Connectivity</span><h3>Connectivity</h3><p><strong>Lead sentence</strong></p><p>Blue is used for connectivity-specific separators, highlights and diagrams.</p><div class="theme-chair"><span>Scientific lead</span><strong>Example Name</strong></div></article>
+        <article class="theme-card automation"><span class="theme-number">02 · Automation</span><h3>Automation</h3><p><strong>Lead sentence</strong></p><p>Green is used for automation-specific separators, highlights and diagrams.</p><div class="theme-chair"><span>Scientific lead</span><strong>Example Name</strong></div></article>
+        <article class="theme-card mobile-systems"><span class="theme-number">03 · Mobile Systems</span><h3>Mobile Systems</h3><p><strong>Lead sentence</strong></p><p>Orange is used for mobile-systems-specific separators, highlights and diagrams.</p><div class="theme-chair"><span>Scientific lead</span><strong>Example Name</strong></div></article>
       </div>
     </div>
   </section>
@@ -130,15 +142,18 @@ import SidebarPanel from '../components/SidebarPanel.astro';
   <section id="responsive" class="ds-section section-soft">
     <div class="container">
       <p class="eyebrow">08 · Responsive behavior</p>
-      <h2>Desktop conference structure, simplified on smaller screens</h2>
-      <table class="breakpoint-table">
-        <thead><tr><th>Range</th><th>Behavior</th></tr></thead>
-        <tbody>
-          <tr><td>≥ 961px</td><td>Full masthead, horizontal navigation, content + sidebar, 3-column theme sections.</td></tr>
-          <tr><td>761–960px</td><td>Sidebar moves below main content; two-column cards are allowed; masthead remains visible.</td></tr>
-          <tr><td>≤ 760px</td><td>Single-column layout, explicit Menu button, no hidden nested navigation, stacked actions and tables that degrade to readable blocks.</td></tr>
-        </tbody>
-      </table>
+      <h2 id="responsive-heading">Desktop conference structure, simplified on smaller screens</h2>
+      <div class="table-scroll" tabindex="0" role="region" aria-labelledby="responsive-heading">
+        <table class="breakpoint-table">
+          <caption class="visually-hidden">Responsive breakpoint behavior</caption>
+          <thead><tr><th scope="col">Range</th><th scope="col">Behavior</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">≥ 961px</th><td>Full masthead, horizontal navigation, content + sidebar, 3-column theme sections.</td></tr>
+            <tr><th scope="row">761–960px</th><td>Sidebar moves below main content; two-column cards are allowed; masthead remains visible.</td></tr>
+            <tr><th scope="row">≤ 760px</th><td>Single-column layout, explicit Menu button, no hidden nested navigation, stacked actions and tables that degrade to readable blocks.</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
@@ -148,8 +163,10 @@ import SidebarPanel from '../components/SidebarPanel.astro';
       <h2>Predictable for keyboard, screen-reader, ADHD and autistic users</h2>
       <div class="ds-component-grid">
         <div class="ds-demo"><h3>Navigation</h3><ul><li>One primary menu.</li><li>No nested mega-menu.</li><li>Primary destinations reachable in one interaction.</li><li>Mobile menu is explicit and labelled.</li></ul></div>
-        <div class="ds-demo"><h3>Reading</h3><ul><li>Maximum reading width around 72 characters.</li><li>Headings describe what follows.</li><li>Long information uses sections, tables and lists instead of decorative fragments.</li><li>Important status text is stated, not encoded only by color.</li></ul></div>
-        <div class="ds-demo"><h3>Motion & focus</h3><ul><li>No mandatory animation.</li><li>prefers-reduced-motion is respected.</li><li>Keyboard focus must remain visible.</li><li>Skip-to-content is present.</li></ul></div>
+        <div class="ds-demo"><h3>Reading</h3><ul><li>Maximum reading width around 72 characters.</li><li>Headings describe what follows.</li><li>Long information uses sections, tables and lists instead of decorative fragments.</li><li>Important status text is stated, not encoded only by color.</li><li>Legibility floor: no rendered text below <code>--text-xs</code> (13px). Secondary text uses <code>--text-sm</code> (14px); body copy stays at 16px.</li></ul></div>
+        <div class="ds-demo"><h3>Motion & focus</h3><ul><li>No mandatory animation.</li><li>prefers-reduced-motion is respected.</li><li>Keyboard focus must remain visible.</li><li>Skip-to-content is present and moves focus to <code>main</code>.</li><li>Interactive targets are at least 24x24 CSS px, except links inline within a sentence.</li></ul></div>
+        <div class="ds-demo"><h3>Contrast</h3><ul><li>Body, heading, link, badge and table text exceed AA.</li><li>Muted text uses <code>--ink-500</code>, which is AA on both white and <code>--surface-soft</code>.</li><li>White text on orange uses <code>--warning</code>, not the brighter <code>--orange-600</code> accent.</li><li>Links on navy surfaces use <code>--link-on-dark</code>; the default link blue is only 2.67:1 there.</li><li>Focus rings use <code>--focus</code> on light surfaces and <code>--focus-on-dark</code> on navy and blue surfaces.</li><li>The ring color follows the surface the control sits <em>on</em>, not the control's own background: the outline is drawn outside the element.</li></ul></div>
+        <div class="ds-demo"><h3>Semantics</h3><ul><li>Links are underlined wherever they sit next to non-link text, so they are not identified by color alone.</li><li>Tables keep <code>table</code> display at every width, with <code>scope</code> on row and column headers and an accessible name.</li><li>Horizontally scrollable tables live in a focusable, labelled <code>.table-scroll</code> region so keyboard users can reach the overflow.</li><li>Decorative glyphs (arrows, separators) are hidden from assistive technology or drawn with CSS instead of generated text content.</li><li>One <code>h1</code> per page; type specimens on this page are paragraphs, not headings.</li></ul></div>
         <div class="ds-demo"><h3>Agent rule</h3><p>Do not “improve” this system by adding visual novelty. Changes need a content, usability or accessibility justification and must preserve the conference-site information hierarchy.</p></div>
       </div>
     </div>
