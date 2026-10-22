@@ -1,9 +1,10 @@
 ---
 import { conference } from '../content';
+import { withBase } from '../paths';
 ---
 <section class="home-hero" aria-labelledby="home-hero-title">
   <img
-    src="/assets/split-hero.webp"
+    src={withBase('/assets/split-hero.webp')}
     alt="Coastal cityscape representing Split, Croatia"
     width="1672"
     height="941"
@@ -21,7 +22,7 @@ import { conference } from '../content';
       <span>{conference.format}</span>
     </div>
     <div class="hero-actions">
-      <a class="button button-primary" href="/call-for-papers">Call for Papers</a>
+      <a class="button button-primary" href={withBase('/call-for-papers')}>Call for Papers</a>
       <a class="button button-ghost-light" href="#themes">Explore the Themes</a>
     </div>
   </div>

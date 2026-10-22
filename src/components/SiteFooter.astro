@@ -1,5 +1,6 @@
 ---
 import { conference, navigation } from '../content';
+import { withBase } from '../paths';
 ---
 <footer class="site-footer">
   <div class="footer-accent" aria-hidden="true">
@@ -8,7 +9,7 @@ import { conference, navigation } from '../content';
   <div class="container footer-grid">
     <div class="footer-brand">
       <img
-        src="/assets/camos-footer.webp"
+        src={withBase('/assets/camos-footer.webp')}
         alt="CAMoS 2027 — International Conference on Connectivity, Automation and Mobile Systems"
         width="1199"
         height="675"
@@ -21,7 +22,7 @@ import { conference, navigation } from '../content';
     <div>
       <h2 class="footer-title">Conference</h2>
       <ul class="footer-links">
-        {navigation.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+        {navigation.map((item) => <li><a href={withBase(item.href)}>{item.label}</a></li>)}
       </ul>
     </div>
     <div>

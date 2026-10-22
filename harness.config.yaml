@@ -1,5 +1,5 @@
 version: 1
-project: camos-2027-website
+project: camos-ieee
 active_spec: specs/001-camos-2027-site/spec.md
 constitution: .specify/memory/constitution.md
 model_routing: model-routing.yaml
@@ -14,7 +14,6 @@ commands:
   dev: npm run dev
   verify: npm run check
   build: npm run build
-  deploy: npm run deploy
 
 quality_gates:
   - content_guard

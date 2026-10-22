@@ -1,5 +1,5 @@
 {
-  "name": "camos-2027-website",
+  "name": "camos-ieee",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -8,20 +8,17 @@
     "build": "astro build",
     "preview": "astro preview",
     "content:check": "node scripts/check-content.mjs",
-    "check": "npm run content:check && astro check && astro build",
-    "deploy": "npm run check && wrangler pages deploy dist --project-name=$CLOUDFLARE_PAGES_PROJECT"
+    "check": "npm run content:check && astro check && astro build"
   },
   "dependencies": {
     "astro": "^7.2.1"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
-    "typescript": "^5.9.2",
-    "wrangler": "^4.37.1"
+    "typescript": "^5.9.2"
   },
   "allowScripts": {
     "esbuild@0.28.2": true,
-    "esbuild@0.28.1": true,
-    "workerd@1.20260918.1": true
+    "esbuild@0.28.1": true
   }
 }

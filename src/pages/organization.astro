@@ -3,6 +3,7 @@ import BaseLayout from '../components/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import SidebarPanel from '../components/SidebarPanel.astro';
 import { scientificLeadership, operationalRoles, themes } from '../content';
+import { withBase } from '../paths';
 ---
 <BaseLayout title="Organization" active="/organization">
   <PageHero
@@ -10,7 +11,7 @@ import { scientificLeadership, operationalRoles, themes } from '../content';
     title="Organization"
     description="Scientific, administrative and operational responsibilities for the first edition of CAMoS."
   />
-  <nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><a href="/">Home</a> / <span aria-current="page">Organization</span></div></nav>
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><a href={withBase('/')}>Home</a> / <span aria-current="page">Organization</span></div></nav>
 
   <section class="section">
     <div class="container content-with-sidebar">
@@ -76,7 +77,7 @@ import { scientificLeadership, operationalRoles, themes } from '../content';
         </SidebarPanel>
         <SidebarPanel title="Scientific Areas" tone="blue">
           <ul>
-            {themes.map((theme) => <li><a href={`/#${theme.slug}`}>{theme.label}</a></li>)}
+            {themes.map((theme) => <li><a href={withBase(`/#${theme.slug}`)}>{theme.label}</a></li>)}
           </ul>
         </SidebarPanel>
       </div>

@@ -3,7 +3,7 @@
 ## Foundation
 - [x] Create Astro static scaffold
 - [x] Create single source of truth in `src/content.ts`
-- [x] Add Cloudflare/Wrangler configuration
+- [x] Add deployment configuration
 - [x] Add accessibility-first shared shell
 
 ## Visual system
@@ -33,4 +33,4 @@
 - [ ] Run `npm run check`
 - [ ] Review desktop screenshots at 1440px
 - [ ] Review mobile screenshots at 390px
-- [ ] Connect production domain in Cloudflare after registrar/DNS setup
+- [ ] Connect production domain in GitHub Pages after registrar/DNS setup

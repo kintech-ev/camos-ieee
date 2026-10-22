@@ -18,7 +18,7 @@ models:
       - css
       - responsive_layout
       - contained_refactors
-      - cloudflare_config
+      - deployment_config
   reasoning:
     env: CAMoS_MODEL_REASONING
     fallback: "provider-default-reasoning"

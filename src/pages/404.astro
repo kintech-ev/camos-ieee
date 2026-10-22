@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../components/BaseLayout.astro';
+import { withBase } from '../paths';
 ---
 <BaseLayout title="Page not found" noindex={true}>
   <section class="not-found" aria-labelledby="not-found-title">
     <div class="container not-found-inner">
       <h1 id="not-found-title">Page not found</h1>
       <p>The page you're looking for doesn't exist or has been moved.</p>
-      <a class="button button-primary not-found-link" href="/">
+      <a class="button button-primary not-found-link" href={withBase('/')}>
         Go home <span aria-hidden="true">→</span>
       </a>
     </div>

@@ -71,5 +71,5 @@ An organizer can find scientific leadership, operational roles, and whether each
 3. Conference facts come from `src/content.ts` rather than being repeated across page source.
 4. `/design-system` visibly documents and renders foundations, layout, components, states, responsive behavior and accessibility rules in local development, and is not present in the production build output.
 5. `npm run check` passes after dependencies are installed.
-6. The site can be built statically and deployed with Wrangler/Cloudflare.
+6. The site can be built statically and published to GitHub Pages.
 7. The `/kintech` route redirects to https://www.kintech-ev.de/.

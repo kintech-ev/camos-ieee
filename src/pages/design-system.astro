@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../components/BaseLayout.astro';
 import SidebarPanel from '../components/SidebarPanel.astro';
+import { withBase } from '../paths';
 ---
 <BaseLayout title="Website Design System" noindex={true}>
   <section class="ds-hero">
@@ -106,11 +107,11 @@ import SidebarPanel from '../components/SidebarPanel.astro';
       <h2>The actual UI vocabulary used by the site</h2>
       <p class="ds-description">These are the reusable patterns. The site should not grow a parallel component language unless a real content need appears.</p>
       <div class="ds-component-grid">
-        <div class="ds-demo"><h3>Buttons</h3><div style="display:flex;gap:.6rem;flex-wrap:wrap"><a class="button button-primary" href="/call-for-papers">Primary action</a><a class="button button-secondary" href="/organization">Secondary</a><a class="button button-outline" href="/venue-registration">Outline</a></div></div>
+        <div class="ds-demo"><h3>Buttons</h3><div style="display:flex;gap:.6rem;flex-wrap:wrap"><a class="button button-primary" href={withBase('/call-for-papers')}>Primary action</a><a class="button button-secondary" href={withBase('/organization')}>Secondary</a><a class="button button-outline" href={withBase('/venue-registration')}>Outline</a></div></div>
         <div class="ds-demo"><h3>Status badges</h3><div style="display:flex;gap:.6rem;flex-wrap:wrap"><span class="badge badge-confirmed">Confirmed</span><span class="badge badge-planned">Planned</span><span class="badge badge-pending">Subject to confirmation</span><span class="badge badge-open">Open</span></div></div>
         <div class="ds-demo"><h3>Information notice</h3><div class="notice"><strong>Publication pathway</strong><p>Use a bordered notice for information that must be noticed without becoming a full-width alert.</p></div></div>
         <div class="ds-demo"><h3>Deadline / warning notice</h3><div class="notice warning"><strong>Dates not final</strong><p>Orange indicates time-sensitive or provisional information, not a decorative highlight.</p></div></div>
-        <div class="ds-demo"><h3>Sidebar panel</h3><SidebarPanel title="Quick Links" tone="navy"><ul><li><a href="/call-for-papers">Call for Papers <span aria-hidden="true">→</span></a></li><li><a href="/organization">Organization <span aria-hidden="true">→</span></a></li><li><a href="/venue-registration">Venue <span aria-hidden="true">→</span></a></li></ul></SidebarPanel></div>
+        <div class="ds-demo"><h3>Sidebar panel</h3><SidebarPanel title="Quick Links" tone="navy"><ul><li><a href={withBase('/call-for-papers')}>Call for Papers <span aria-hidden="true">→</span></a></li><li><a href={withBase('/organization')}>Organization <span aria-hidden="true">→</span></a></li><li><a href={withBase('/venue-registration')}>Venue <span aria-hidden="true">→</span></a></li></ul></SidebarPanel></div>
         <div class="ds-demo"><h3 id="ds-table-demo">Administrative table</h3><div class="table-scroll" tabindex="0" role="region" aria-labelledby="ds-table-demo"><table class="organization-table"><thead><tr><th scope="col">Role</th><th scope="col">Name</th><th scope="col">Status</th></tr></thead><tbody><tr><th scope="row">Publication Chair</th><td>Example Name</td><td><span class="badge badge-confirmed">Confirmed</span></td></tr><tr><th scope="row">International Liaison</th><td>To be appointed</td><td><span class="badge badge-open">Open</span></td></tr></tbody></table></div></div>
       </div>
       <div class="ds-demo" style="margin-top:1.25rem">

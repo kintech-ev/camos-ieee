@@ -7,7 +7,7 @@ This repository is intentionally small. Do not add architecture unless the activ
 1. `.specify/memory/constitution.md`
 2. `specs/001-camos-2027-site/spec.md`
 3. `specs/001-camos-2027-site/tasks.md`
-4. `HARNESS.md`
+4. `docs/HARNESS.md`
 5. `model-routing.yaml`
 
 ## Project map
@@ -21,6 +21,7 @@ This repository is intentionally small. Do not add architecture unless the activ
 | Live design reference | `src/pages/design-system.astro` |
 | Assets | `public/assets/` |
 | Active product spec | `specs/001-camos-2027-site/` |
+| Harness, design system and deployment docs | `docs/` |
 
 ## Mandatory rules
 

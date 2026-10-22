@@ -10,6 +10,7 @@ import {
   scientificLeadership,
   statusFacts,
 } from '../content';
+import { withBase } from '../paths';
 ---
 <BaseLayout active="/">
   <HomeHero />
@@ -18,7 +19,7 @@ import {
     <div class="container announcement-inner">
       <span class="announcement-label">Planning update</span>
       <strong>{conference.dates} · {conference.city}, {conference.country} · {conference.format}</strong>
-      <a class="announcement-link" href="/venue-registration">Venue & registration status <span aria-hidden="true">→</span></a>
+      <a class="announcement-link" href={withBase('/venue-registration')}>Venue & registration status <span aria-hidden="true">→</span></a>
     </div>
   </section>
 
@@ -65,7 +66,7 @@ import {
         </SidebarPanel>
         <SidebarPanel title="Quick Links" tone="blue">
           <ul>
-            {quickLinks.map((item) => <li><a href={item.href}>{item.label} <span aria-hidden="true">→</span></a></li>)}
+            {quickLinks.map((item) => <li><a href={withBase(item.href)}>{item.label} <span aria-hidden="true">→</span></a></li>)}
           </ul>
         </SidebarPanel>
       </div>
@@ -80,7 +81,7 @@ import {
           <h2>Connectivity · Automation · Mobile Systems</h2>
           <p>Three central themes, each spanning physical, digital and cyber-physical systems.</p>
         </div>
-        <a class="button button-outline" href="/call-for-papers">See full scope</a>
+        <a class="button button-outline" href={withBase('/call-for-papers')}>See full scope</a>
       </div>
 
       <div class="theme-grid">
@@ -138,7 +139,7 @@ import {
           <h2>Three themes, three General Chairs</h2>
           <p>Scientific leadership follows the conference's core thematic structure.</p>
         </div>
-        <a href="/organization" class="button button-outline">Full organization</a>
+        <a href={withBase('/organization')} class="button button-outline">Full organization</a>
       </div>
       <div class="leadership-grid">
         {scientificLeadership.slice(0,3).map((person) => (
@@ -155,7 +156,7 @@ import {
     <div class="container split-feature">
       <div class="split-feature-media">
         <img
-          src="/assets/split-hero.webp"
+          src={withBase('/assets/split-hero.webp')}
           alt="Split, Croatia coastal view"
           width="1672"
           height="941"
@@ -170,7 +171,7 @@ import {
           The first CAMoS edition is planned for Split from 2 to 6 August 2027. Local organizational work includes identifying suitable facilities, confirming availability and cost, and preparing the on-site conference infrastructure.
         </p>
         <p>Hybrid participation is planned, enabling both in-person and online presentations.</p>
-        <a href="/venue-registration" class="button button-primary">Venue & registration details</a>
+        <a href={withBase('/venue-registration')} class="button button-primary">Venue & registration details</a>
       </div>
     </div>
   </section>

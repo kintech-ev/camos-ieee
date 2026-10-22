@@ -3,6 +3,7 @@ import BaseLayout from '../components/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import SidebarPanel from '../components/SidebarPanel.astro';
 import { conference, scopeGroups, submissionCategories, statusFacts } from '../content';
+import { withBase } from '../paths';
 ---
 <BaseLayout title="Call for Papers" active="/call-for-papers">
   <PageHero
@@ -10,7 +11,7 @@ import { conference, scopeGroups, submissionCategories, statusFacts } from '../c
     title="Call for Papers"
     description="Original research, systems, applications and emerging work across automation, mobility, connectivity and their intersections."
   />
-  <nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><a href="/">Home</a> / <span aria-current="page">Call for Papers</span></div></nav>
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><a href={withBase('/')}>Home</a> / <span aria-current="page">Call for Papers</span></div></nav>
 
   <section class="section">
     <div class="container content-with-sidebar">
@@ -95,7 +96,7 @@ import { conference, scopeGroups, submissionCategories, statusFacts } from '../c
             <li><a href={conference.submissionUrl}>Paper submissions (EasyChair CFP) <span aria-hidden="true">→</span></a></li>
             <li><span class="placeholder-link">Author guidelines — coming later</span></li>
             <li><span class="placeholder-link">Paper templates — coming later</span></li>
-            <li><a href="/organization">Conference organization <span aria-hidden="true">→</span></a></li>
+            <li><a href={withBase('/organization')}>Conference organization <span aria-hidden="true">→</span></a></li>
           </ul>
         </SidebarPanel>
         <SidebarPanel title="Publication Status" tone="plain">

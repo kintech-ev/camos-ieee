@@ -1,4 +1,6 @@
 ---
+import { withBase } from '../paths';
+
 interface Props {
   eyebrow: string;
   title: string;
@@ -8,7 +10,7 @@ interface Props {
 const { eyebrow, title, description, image = '/assets/network-split.webp' } = Astro.props;
 ---
 <section class="page-hero">
-  <img src={image} alt="" aria-hidden="true" width="1672" height="941" fetchpriority="high" decoding="async" />
+  <img src={withBase(image)} alt="" aria-hidden="true" width="1672" height="941" fetchpriority="high" decoding="async" />
   <div class="page-hero-overlay"></div>
   <div class="container page-hero-content">
     <p class="eyebrow light">{eyebrow}</p>

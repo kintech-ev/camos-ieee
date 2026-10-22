@@ -7,10 +7,6 @@ node_modules/
 dist/
 .astro/
 
-# Cloudflare / Wrangler
-.wrangler/
-.dev.vars
-
 # Env
 .env
 .env.*
@@ -31,4 +27,4 @@ pnpm-debug.log*
 Thumbs.db
 .kiro/
 .github/agents/
-.agents/
+.commandcode/

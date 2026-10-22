@@ -31,5 +31,6 @@
 
 ## Notes
 
-- Validation pass: all checklist items pass. The specification intentionally names Cloudflare Pages, GitHub, branches, pages.dev, `npm run check`, and the future IEEE hostnames because these are explicit delivery constraints and acceptance surfaces. It preserves the existing website scope and documents manual account checkpoints, security boundaries, rollback, and domain attachment without redesigning the application.
+- Validation pass: all checklist items pass. The specification intentionally names GitHub Pages, GitHub, `main`, the GitHub Pages project-site URL, `npm run check`, and the future IEEE hostnames because these are explicit delivery constraints and acceptance surfaces. It preserves the existing website scope and documents manual account checkpoints, security boundaries, rollback, and domain attachment without redesigning the application.
+- Updated 2026-10-22: the hosting target changed from Cloudflare Pages to GitHub Pages. The `dev`/staging environment, the pull-request preview deployments, and the `pages.dev` hostnames were replaced by a single published environment on `main`, a documented local preview procedure, and the repository-derived project-site URL with its base path.
 - Ready for `/speckit-plan`.

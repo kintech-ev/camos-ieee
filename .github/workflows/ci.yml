@@ -5,9 +5,10 @@ on:
     branches:
       - dev
       - main
+  # main is validated by the Deploy GitHub Pages workflow, which runs the same gate.
   push:
-    branches:
-      - '**'
+    branches-ignore:
+      - main
 
 permissions:
   contents: read

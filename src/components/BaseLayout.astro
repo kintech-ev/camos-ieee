@@ -1,5 +1,6 @@
 ---
 import '../styles.css';
+import { withBase } from '../paths';
 import SiteHeader from './SiteHeader.astro';
 import SiteFooter from './SiteFooter.astro';
 
@@ -22,7 +23,7 @@ const fullTitle = title === 'CAMoS 2027' ? title : `${title} | CAMoS 2027`;
 // `Astro.site` comes from `site` in astro.config.mjs (PUBLIC_SITE_URL, else the
 // production domain). Both are derived from it so no URL is hardcoded twice.
 const canonical = Astro.site && !noindex ? new URL(Astro.url.pathname, Astro.site) : undefined;
-const ogImage = Astro.site ? new URL('/assets/split-hero.webp', Astro.site) : undefined;
+const ogImage = Astro.site ? new URL(withBase('/assets/split-hero.webp'), Astro.site) : undefined;
 ---
 <!doctype html>
 <html lang="en">
@@ -31,7 +32,7 @@ const ogImage = Astro.site ? new URL('/assets/split-hero.webp', Astro.site) : un
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex,nofollow" />}
-    <link rel="icon" type="image/png" href="/assets/favicon.png" />
+    <link rel="icon" type="image/png" href={withBase('/assets/favicon.png')} />
     <meta name="theme-color" content="#071b2f" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />

@@ -24,7 +24,12 @@ const excludeInternalRoutes = () => ({
 
 export default defineConfig({
   output: 'static',
-  site: process.env.PUBLIC_SITE_URL || 'https://ieee-icamc.org',
+  site: process.env.PUBLIC_SITE_URL || 'https://kintech-ev.github.io',
+  // GitHub Pages serves this repository as a project site under /<repo>/, so the
+  // build base must match it. Internal links go through `src/paths.ts`, which
+  // reads `import.meta.env.BASE_URL`; moving to the conference domain later only
+  // means clearing PUBLIC_BASE_PATH.
+  base: process.env.PUBLIC_BASE_PATH || '/camos-ieee',
   trailingSlash: 'never',
   build: {
     format: 'directory'

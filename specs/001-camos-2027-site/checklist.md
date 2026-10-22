@@ -11,4 +11,4 @@
 - [ ] Tables remain readable on small screens
 - [ ] `prefers-reduced-motion` is respected
 - [ ] `npm run check` passes
-- [ ] Cloudflare preview checked before production route is attached
+- [ ] Deployment preview checked before production route is attached

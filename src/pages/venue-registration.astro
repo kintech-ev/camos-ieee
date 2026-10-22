@@ -3,6 +3,7 @@ import BaseLayout from '../components/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import SidebarPanel from '../components/SidebarPanel.astro';
 import { conference, registrationTiers, statusFacts } from '../content';
+import { withBase } from '../paths';
 ---
 <BaseLayout title="Venue & Registration" active="/venue-registration">
   <PageHero
@@ -11,7 +12,7 @@ import { conference, registrationTiers, statusFacts } from '../content';
     description="Venue planning, hybrid participation and registration information for 2–6 August 2027."
     image="/assets/split-hero.webp"
   />
-  <nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><a href="/">Home</a> / <span aria-current="page">Venue & Registration</span></div></nav>
+  <nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><a href={withBase('/')}>Home</a> / <span aria-current="page">Venue & Registration</span></div></nav>
 
   <section class="section">
     <div class="container content-with-sidebar">

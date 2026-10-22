@@ -37,7 +37,7 @@ Live implementations of the exact tokens/components used above. This route is in
 - no icon package
 - no JavaScript except mobile navigation
 - CSS custom properties for all design tokens
-- Cloudflare Workers Static Assets through Wrangler
+- GitHub Pages through GitHub Actions
 - conference data centralized in TypeScript
 
 ## Validation
